@@ -9,17 +9,27 @@ img {
 	border: 0;
 }
 
+router-outlet + *  {
+  padding: 1rem;
+}
+
+body {
+	color: #000;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.8rem;
+	font-weight: 400;
+}
+
 h1 {
   color: #D30808;
-  font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Open Sans', sans-serif;
   font-size: 5rem;
 }
 h2, h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
+  color: #D30808;
+	font-family: 'Open Sans', sans-serif;
+  font-size: 4rem;
 }
-
 
 html {
 	font-size: 0.625em;  /* set 1 rem = 16px * 0.625 = 10px */
@@ -27,7 +37,6 @@ html {
 
 a {
   cursor: pointer;
-  color: #1976d2;
   text-decoration: none;
 }
 
@@ -42,12 +51,18 @@ app-topbar {
   padding: 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
 }
 
 app-topbar h1 {
-  color: black;
-  margin: 0;
+  color: #000;
+  margin: 1rem;
+}
+
+app-topbar h2 {
+  color: #000;
+  margin: 1rem;
+  margin-left: 5rem;
 }
 
