@@ -14,7 +14,6 @@ router-outlet + *  {
 }
 
 body {
-	color: #000;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.8rem;
 	font-weight: 400;
@@ -44,25 +43,7 @@ a:hover {
   opacity: 0.8;
 }
 
-app-topbar {
-  width: 100%;
-  height: 10rem;
-  background-color: #D30808;
-  padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-}
-
-app-topbar h1 {
-  color: #000;
-  margin: 1rem;
-}
-
-app-topbar h2 {
-  color: #000;
-  margin: 1rem;
-  margin-left: 5rem;
+.p-tabmenu-nav a {
+  font-size: 2rem;
 }
 
