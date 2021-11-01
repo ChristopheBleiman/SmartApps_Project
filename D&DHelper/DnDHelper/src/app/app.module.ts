@@ -4,8 +4,11 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { TopbarComponent } from './topbar/topbar.component';
 import { DicerollerComponent } from './diceroller/diceroller.component';
+import {ButtonModule} from 'primeng/button';
+import {ToolbarModule} from 'primeng/toolbar';
+import {TabMenuModule} from 'primeng/tabmenu';
+import { TabNavComponent } from './tab-nav/tab-nav.component';
 
 @NgModule({
   imports: [
@@ -13,11 +16,14 @@ import { DicerollerComponent } from './diceroller/diceroller.component';
     RouterModule.forRoot([
       { path: 'diceroller', component: DicerollerComponent },
     ]),
+    ButtonModule,
+    ToolbarModule,
+    TabMenuModule,
   ],
   declarations: [
     AppComponent,
-    TopbarComponent,
     DicerollerComponent,
+    TabNavComponent,
    ],
   providers: [],
   bootstrap: [AppComponent]
