@@ -1,3 +1,4 @@
+import { Spell } from './../spells.service';
 import { Component, OnInit } from '@angular/core';
 import { SpellsService } from '../spells.service';
 
@@ -7,10 +8,13 @@ import { SpellsService } from '../spells.service';
   styleUrls: ['./compendium.component.css']
 })
 export class CompendiumComponent implements OnInit {
+  public spellArray: Spell[] = [];
 
   constructor(private spell:SpellsService){
     this.spell.getData().subscribe(data=>{
       console.warn(data);
+      this.spellArray = data;
+      console.warn(this.spellArray);
     })
   }
 
