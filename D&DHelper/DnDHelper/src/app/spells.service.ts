@@ -9,14 +9,8 @@ export class SpellsService {
 
   constructor(private http:HttpClient) { }
 
-  getData() : Observable<Spell[]> {
+  getData()  {
     let url = "https://www.dnd5eapi.co/api/spells/";
-    return this.http.get<Spell[]>(url);
+    return this.http.get(url);
   }
 }
-export interface Spell{
-  index: string;
-  name: string;
-  url: string;
-}
-
