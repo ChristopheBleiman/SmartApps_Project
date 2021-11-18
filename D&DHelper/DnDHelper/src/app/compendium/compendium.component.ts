@@ -11,13 +11,17 @@ export class CompendiumComponent implements OnInit {
   spellList: SpellList | undefined;
 
   constructor(private spell:SpellsService){
+    this.LoadSpells();
+  }
+
+  ngOnInit() {
+  }
+
+  LoadSpells(){
     this.spell.getData().subscribe(data => this.spellList = {
       count: (data as any).count,
       results: (data as any).results,
     })
-  }
-
-  ngOnInit() {
   }
 
 }
