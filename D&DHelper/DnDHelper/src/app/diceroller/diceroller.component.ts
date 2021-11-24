@@ -12,6 +12,51 @@ export class DicerollerComponent implements OnInit {
   ngOnInit() {
   }
 
+  RollDice() {
+    let diceAmount4 = (<HTMLInputElement>document.querySelector("#amountD4Dice")).value;
+    let diceAmount6 = (<HTMLInputElement>document.querySelector("#amountD6Dice")).value;
+    let diceAmount8 = (<HTMLInputElement>document.querySelector("#amountD8Dice")).value;
+    let diceAmount10 = (<HTMLInputElement>document.querySelector("#amountD10Dice")).value;
+    let diceAmount12 = (<HTMLInputElement>document.querySelector("#amountD12Dice")).value;
+    let diceAmount20 = (<HTMLInputElement>document.querySelector("#amountD20Dice")).value;
+    let diceAmount100 = (<HTMLInputElement>document.querySelector("#amountD100Dice")).value;
+    
+    if(parseInt(`${diceAmount4}`) > 0){
+      this.RollD4(parseInt(`${diceAmount4}`));
+      this.ClearD4Dice();
+    }
+
+    if(parseInt(`${diceAmount6}`) > 0){
+      this.RollD6(parseInt(`${diceAmount6}`));
+      this.ClearD6Dice();
+    }
+
+    if(parseInt(`${diceAmount8}`) > 0){
+      this.RollD8(parseInt(`${diceAmount8}`));
+      this.ClearD8Dice();
+    }
+
+    if(parseInt(`${diceAmount10}`) > 0){
+      this.RollD10(parseInt(`${diceAmount10}`));
+      this.ClearD10Dice();
+    }
+
+    if(parseInt(`${diceAmount12}`) > 0){
+      this.RollD12(parseInt(`${diceAmount12}`));
+      this.ClearD12Dice();
+    }
+
+    if(parseInt(`${diceAmount20}`) > 0){
+      this.RollD20(parseInt(`${diceAmount20}`));
+      this.ClearD20Dice();
+    }
+
+    if(parseInt(`${diceAmount100}`) > 0){
+      this.RollD100(parseInt(`${diceAmount100}`));
+      this.ClearD100Dice();
+    }
+  }
+
   RollD4(diceAmount: number) {
     let ul = document.querySelector("#lstRolls");
     let li = document.createElement("li");
@@ -26,19 +71,6 @@ export class DicerollerComponent implements OnInit {
     }
     li.appendChild(document.createTextNode(`→Total: ${diceAmount}D4: ${total}`));
     ul?.appendChild(li);
-  }
-
-  ShowAmountD4(){
-    let showRolls = document.querySelector("#D4Dice");
-    let diceAmount = (<HTMLInputElement>document.querySelector("#amountD4Dice")).value;
-    if(parseInt(`${diceAmount}`) > 0){
-      this.RollD4(parseInt(`${diceAmount}`));
-      this.ClearD4Dice();
-      showRolls?.setAttribute("hidden", "");
-    }
-    else if(parseInt(`${diceAmount}`) == 0){
-      showRolls?.removeAttribute("hidden");
-    }
   }
 
   ClearD4Dice(){
@@ -61,19 +93,6 @@ export class DicerollerComponent implements OnInit {
     ul?.appendChild(li);
   }
 
-  ShowAmountD6(){
-    let showRolls = document.querySelector("#D6Dice");
-    let diceAmount = (<HTMLInputElement>document.querySelector("#amountD6Dice")).value;
-    if(parseInt(`${diceAmount}`) > 0){
-      this.RollD6(parseInt(`${diceAmount}`));
-      this.ClearD6Dice();
-      showRolls?.setAttribute("hidden", "");
-    }
-    else if(parseInt(`${diceAmount}`) == 0){
-      showRolls?.removeAttribute("hidden");
-    }
-  }
-
   ClearD6Dice(){
     (<HTMLInputElement>document.querySelector("#amountD6Dice")).value = "0";
   }
@@ -92,19 +111,6 @@ export class DicerollerComponent implements OnInit {
     }
     li.appendChild(document.createTextNode(`→Total: ${diceAmount}D8: ${total}`));
     ul?.appendChild(li);
-  }
-
-  ShowAmountD8(){
-    let showRolls = document.querySelector("#D8Dice");
-    let diceAmount = (<HTMLInputElement>document.querySelector("#amountD8Dice")).value;
-    if(parseInt(`${diceAmount}`) > 0){
-      this.RollD8(parseInt(`${diceAmount}`));
-      this.ClearD8Dice();
-      showRolls?.setAttribute("hidden", "");
-    }
-    else if(parseInt(`${diceAmount}`) == 0){
-      showRolls?.removeAttribute("hidden");
-    }
   }
 
   ClearD8Dice(){
@@ -127,19 +133,6 @@ export class DicerollerComponent implements OnInit {
     ul?.appendChild(li);
   }
 
-  ShowAmountD10(){
-    let showRolls = document.querySelector("#D10Dice");
-    let diceAmount = (<HTMLInputElement>document.querySelector("#amountD10Dice")).value;
-    if(parseInt(`${diceAmount}`) > 0){
-      this.RollD10(parseInt(`${diceAmount}`));
-      this.ClearD10Dice();
-      showRolls?.setAttribute("hidden", "");
-    }
-    else if(parseInt(`${diceAmount}`) == 0){
-      showRolls?.removeAttribute("hidden");
-    }
-  }
-
   ClearD10Dice(){
     (<HTMLInputElement>document.querySelector("#amountD10Dice")).value = "0";
   }
@@ -158,19 +151,6 @@ export class DicerollerComponent implements OnInit {
     }
     li.appendChild(document.createTextNode(`→Total: ${diceAmount}D12: ${total}`));
     ul?.appendChild(li);
-  }
-
-  ShowAmountD12(){
-    let showRolls = document.querySelector("#D12Dice");
-    let diceAmount = (<HTMLInputElement>document.querySelector("#amountD12Dice")).value;
-    if(parseInt(`${diceAmount}`) > 0){
-      this.RollD12(parseInt(`${diceAmount}`));
-      this.ClearD12Dice();
-      showRolls?.setAttribute("hidden", "");
-    }
-    else if(parseInt(`${diceAmount}`) == 0){
-      showRolls?.removeAttribute("hidden");
-    }
   }
 
   ClearD12Dice(){
@@ -193,19 +173,6 @@ export class DicerollerComponent implements OnInit {
     ul?.appendChild(li);
   }
 
-  ShowAmountD20(){
-    let showRolls = document.querySelector("#D20Dice");
-    let diceAmount = (<HTMLInputElement>document.querySelector("#amountD20Dice")).value;
-    if(parseInt(`${diceAmount}`) > 0){
-      this.RollD20(parseInt(`${diceAmount}`));
-      this.ClearD20Dice();
-      showRolls?.setAttribute("hidden", "");
-    }
-    else if(parseInt(`${diceAmount}`) == 0){
-      showRolls?.removeAttribute("hidden");
-    }
-  }
-
   ClearD20Dice(){
     (<HTMLInputElement>document.querySelector("#amountD20Dice")).value = "0";
   }
@@ -224,19 +191,6 @@ export class DicerollerComponent implements OnInit {
     }
     li.appendChild(document.createTextNode(`→Total: ${diceAmount}D100: ${total}`));
     ul?.appendChild(li);
-  }
-
-  ShowAmountD100(){
-    let showRolls = document.querySelector("#D100Dice");
-    let diceAmount = (<HTMLInputElement>document.querySelector("#amountD100Dice")).value;
-    if(parseInt(`${diceAmount}`) > 0){
-      this.RollD100(parseInt(`${diceAmount}`));
-      this.ClearD100Dice();
-      showRolls?.setAttribute("hidden", "");
-    }
-    else if(parseInt(`${diceAmount}`) == 0){
-      showRolls?.removeAttribute("hidden");
-    }
   }
 
   ClearD100Dice(){
