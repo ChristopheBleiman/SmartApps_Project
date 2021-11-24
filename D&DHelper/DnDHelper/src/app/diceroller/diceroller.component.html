@@ -1,14 +1,15 @@
 <h2>Roll Die!</h2>
-<ul>
-  <li id="D4Roll">D4 <button (click)="RollD4()">ROLL</button></li>
-  <li id="D6Roll">D6 <button (click)="RollD6()">ROLL</button></li>
-  <li id="D8Roll">D8 <button (click)="RollD8()">ROLL</button></li>
-  <li id="D10Roll">D10 <button (click)="RollD10()">ROLL</button></li>
-  <li id="D12Roll">D12 <button (click)="RollD12()">ROLL</button></li>
-  <li id="D20Roll">D20 <button (click)="RollD20()">ROLL</button></li>
-  <li id="D100Roll">D100 <button (click)="RollD100()">ROLL</button></li>
+<ul class="uLists">
+  <li id="D4Roll">D4 <button (click)="ShowAmountD4()">ROLL</button><div id="D4Dice" hidden>Amount of dice<input id="amountD4Dice" value="0" type="number"></div></li>
+  <li id="D6Roll">D6 <button (click)="ShowAmountD6()">ROLL</button><div id="D6Dice" hidden>Amount of dice<input id="amountD6Dice" value="0" type="number"></div></li>
+  <li id="D8Roll">D8 <button (click)="ShowAmountD8()">ROLL</button><div id="D8Dice" hidden>Amount of dice<input id="amountD8Dice" value="0" type="number"></div></li>
+  <li id="D10Roll">D10 <button (click)="ShowAmountD10()">ROLL</button><div id="D10Dice" hidden>Amount of dice<input id="amountD10Dice" value="0" type="number"></div></li>
+  <li id="D12Roll">D12 <button (click)="ShowAmountD12()">ROLL</button><div id="D12Dice" hidden>Amount of dice<input id="amountD12Dice" value="0" type="number"></div></li>
+  <li id="D20Roll">D20 <button (click)="ShowAmountD20()">ROLL</button><div id="D20Dice" hidden>Amount of dice<input id="amountD20Dice" value="0" type="number"></div></li>
+  <li id="D100Roll">D100 <button (click)="ShowAmountD100()">ROLL</button><div id="D100Dice" hidden>Amount of dice<input id="amountD100Dice" value="0" type="number"></div></li>
+  <li id="multiDiceRoll"><button>MULTI DICE ROLL</button></li>
 </ul>
 
-<ul id="lstRolls">
+<ul id="lstRolls" class="uLists">
 
 </ul>
