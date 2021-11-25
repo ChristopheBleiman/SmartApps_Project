@@ -1,0 +1,8 @@
+<div *ngIf="spellDetails">
+  <h3>{{ spellDetails.name }}</h3>
+  <div *ngFor="let line of spellDetails.desc">
+    <h4>{{ line }}</h4>
+  </div>
+  <p>{{ spellDetails.higher_level }}</p>
+</div>
+<button pButton type="button" label="Back" icon="pi pi-chevron-left" iconPos="left" [routerLink]="'/compendium'"></button>
