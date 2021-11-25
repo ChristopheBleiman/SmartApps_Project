@@ -10,6 +10,7 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {TabMenuModule} from 'primeng/tabmenu';
 import { TabNavComponent } from './tab-nav/tab-nav.component';
 import { CompendiumComponent } from './compendium/compendium.component';
+import { SpellDetailsComponent } from './spell-details/spell-details.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { CompendiumComponent } from './compendium/compendium.component';
     RouterModule.forRoot([
       { path: '', redirectTo: '/compendium', pathMatch: 'full' },
       { path: 'compendium', component: CompendiumComponent },
+      { path: 'compendium/spells/:spellIndex', component: SpellDetailsComponent },
       { path: 'diceroller', component: DicerollerComponent },
     ]),
     ButtonModule,
@@ -28,7 +30,8 @@ import { CompendiumComponent } from './compendium/compendium.component';
     AppComponent,
     DicerollerComponent,
     TabNavComponent,
-      CompendiumComponent
+      CompendiumComponent,
+      SpellDetailsComponent
    ],
   providers: [],
   bootstrap: [AppComponent]
