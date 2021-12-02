@@ -1,12 +1,22 @@
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-diceroller',
   templateUrl: './diceroller.component.html',
   styleUrls: ['./diceroller.component.css']
 })
+
+
 export class DicerollerComponent implements OnInit {
+
+  valueDice4: number = 0;
+  valueDice6: number = 0;
+  valueDice8: number = 0;
+  valueDice10: number = 0;
+  valueDice12: number = 0;
+  valueDice20: number = 0;
+  valueDice100: number = 0;
 
   constructor() {}
   ngOnInit() {
@@ -195,6 +205,13 @@ export class DicerollerComponent implements OnInit {
 
   ClearD100Dice(){
     (<HTMLInputElement>document.querySelector("#amountD100Dice")).value = "0";
+  }
+
+  ClearDiceRolls(){
+    let listRolls = document.querySelector("#lstRolls");
+    while(listRolls?.firstChild){
+      listRolls.removeChild(listRolls.firstChild);
+    }
   }
 
 }
