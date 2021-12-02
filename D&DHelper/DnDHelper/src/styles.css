@@ -47,3 +47,7 @@ a:hover {
   font-size: 2rem;
 }
 
+.myOverride .p-inputtext {
+	font-size: 1.5rem;
+	width: 2rem;
+}

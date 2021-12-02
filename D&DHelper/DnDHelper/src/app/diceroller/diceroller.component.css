@@ -4,5 +4,39 @@
 }
 
 #lstRolls {
-    margin-top: 10rem;
+    padding-left: 10rem;
+}
+
+.diceRoller{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+button{
+    margin-right: 1rem;
+}
+
+.myOverride{
+	margin-bottom: 0.5rem;
+}
+
+.myOverride p-inputNumber{
+    margin-left: 0.5rem;
+}
+
+ul{
+    margin-left: 1rem;
+    list-style: none;
+}
+
+#lstRolls li{
+    margin-bottom: 1rem;
+}
+
+#D468Dice p-inputNumber{
+    margin-left: 2.7rem;
+}
+
+#D101220Dice p-inputNumber{
+    margin-left: 1.6rem;
 }
