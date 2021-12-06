@@ -1,4 +1,3 @@
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { Component, OnInit, NgModule } from '@angular/core';
 
 @Component({
@@ -30,7 +29,7 @@ export class DicerollerComponent implements OnInit {
     let diceAmount12 = (<HTMLInputElement>document.querySelector("#amountD12Dice")).value;
     let diceAmount20 = (<HTMLInputElement>document.querySelector("#amountD20Dice")).value;
     let diceAmount100 = (<HTMLInputElement>document.querySelector("#amountD100Dice")).value;
-    
+
     if(parseInt(`${diceAmount4}`) > 0){
       this.RollD4(parseInt(`${diceAmount4}`));
       this.ClearD4Dice();
