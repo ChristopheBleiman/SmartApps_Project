@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Input, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,10 +11,13 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import { TabNavComponent } from './tab-nav/tab-nav.component';
 import { CompendiumComponent } from './compendium/compendium.component';
 import { SpellDetailsComponent } from './spell-details/spell-details.component';
+import { FormsModule } from '@angular/forms';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/compendium', pathMatch: 'full' },
       { path: 'compendium', component: CompendiumComponent },
@@ -22,6 +25,7 @@ import { SpellDetailsComponent } from './spell-details/spell-details.component';
       { path: 'diceroller', component: DicerollerComponent },
     ]),
     ButtonModule,
+    InputNumberModule,
     ToolbarModule,
     TabMenuModule,
     HttpClientModule,
@@ -30,8 +34,8 @@ import { SpellDetailsComponent } from './spell-details/spell-details.component';
     AppComponent,
     DicerollerComponent,
     TabNavComponent,
-      CompendiumComponent,
-      SpellDetailsComponent
+    CompendiumComponent,
+    SpellDetailsComponent,
    ],
   providers: [],
   bootstrap: [AppComponent]
