@@ -13,6 +13,12 @@ import { CompendiumComponent } from './compendium/compendium.component';
 import { SpellDetailsComponent } from './spell-details/spell-details.component';
 import { FormsModule } from '@angular/forms';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { CharacterListComponent } from './character-list/character-list.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   imports: [
@@ -23,12 +29,17 @@ import {InputNumberModule} from 'primeng/inputnumber';
       { path: 'compendium', component: CompendiumComponent },
       { path: 'compendium/spells/:spellIndex', component: SpellDetailsComponent },
       { path: 'diceroller', component: DicerollerComponent },
+      { path: 'characters', component: CharacterListComponent },
     ]),
     ButtonModule,
     InputNumberModule,
     ToolbarModule,
     TabMenuModule,
     HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    AngularFirestoreModule.enablePersistence(),
   ],
   declarations: [
     AppComponent,
@@ -36,6 +47,7 @@ import {InputNumberModule} from 'primeng/inputnumber';
     TabNavComponent,
     CompendiumComponent,
     SpellDetailsComponent,
+    CharacterListComponent
    ],
   providers: [],
   bootstrap: [AppComponent]

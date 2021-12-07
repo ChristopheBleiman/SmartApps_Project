@@ -101,6 +101,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "DnDHelper:build:production",
+            "firebaseProject": "dndhelper-ee140",
+            "firebaseHostingSite": "dndhelper-ee140"
+          }
         }
       }
     }

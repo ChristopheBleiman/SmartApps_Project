@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dndhelper-ee140": {
+      "hosting": {
+        "DnDHelper": [
+          "dndhelper-ee140"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dndhelper-ee140"
+  }
+}
