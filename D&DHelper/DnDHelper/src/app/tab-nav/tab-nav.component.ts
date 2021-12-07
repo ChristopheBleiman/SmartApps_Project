@@ -23,7 +23,7 @@ export class TabNavComponent {
       this.items = [
           {label: 'Compendium', icon: 'pi pi-fw pi-search', routerLink: ['/compendium']},
           {label: 'Dice Roller', icon: 'pi pi-fw pi-th-large', routerLink: ['/diceroller']},
-          {label: 'Characters', icon: 'pi pi-fw pi-file'},
+          {label: 'Characters', icon: 'pi pi-fw pi-file', routerLink: ['/characters']},
           {label: 'Campaigns', icon: 'pi pi-fw pi-map'},
           {label: 'Initiative Tracker', icon: 'pi pi-fw pi-sort-numeric-down-alt'}
       ];
