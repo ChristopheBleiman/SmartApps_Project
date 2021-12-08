@@ -25,7 +25,8 @@ export class TabNavComponent {
           {label: 'Dice Roller', icon: 'pi pi-fw pi-th-large', routerLink: ['/diceroller']},
           {label: 'Characters', icon: 'pi pi-fw pi-file', routerLink: ['/characters']},
           {label: 'Campaigns', icon: 'pi pi-fw pi-map'},
-          {label: 'Initiative Tracker', icon: 'pi pi-fw pi-sort-numeric-down-alt'}
+          {label: 'Initiative Tracker', icon: 'pi pi-fw pi-sort-numeric-down-alt'},
+          {label: 'Login', icon: 'pi pi-user', routerLink: ['/login-google']}
       ];
       if(this.url.path()==='/compendium'){
 
@@ -46,6 +47,9 @@ export class TabNavComponent {
       else if(this.url.path()==='/initiative'){
 
         this.activeItem = this.items[4];
+      }
+      else if(this.url.path() ==='/login-google'){
+        this.activeItem = this.items[5]
       }
       else{
 
