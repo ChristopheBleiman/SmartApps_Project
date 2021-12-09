@@ -1,5 +1,23 @@
 <ul>
-  <li *ngFor="let item of items | async">
-    {{ item.test1 }} {{item.test2}}
+  <li *ngFor="let character of characters | async">
+    <p-card header="{{character.Name}}">
+      <h4>Basic Info</h4>
+      <p>Level {{character.Level}} {{character.Race}} {{character.Subclass}} {{character.Class}}</p>
+      <p>Proficiency Bonus: +{{CalculateProficiencyBonus(character.Level)}}</p>
+      <h4>Stats</h4>
+      <p>STR: {{character.STR}} ({{ShowModifier(character.STR)}})</p>
+      <p>DEX: {{character.DEX}} ({{ShowModifier(character.DEX)}})</p>
+      <p>CON: {{character.CON}} ({{ShowModifier(character.CON)}})</p>
+      <p>INT: {{character.INT}} ({{ShowModifier(character.INT)}})</p>
+      <p>WIS: {{character.WIS}} ({{ShowModifier(character.WIS)}})</p>
+      <p>CHA: {{character.CHA}} ({{ShowModifier(character.CHA)}})</p>
+      <h4>Saving Throws</h4>
+      <p>STR: {{CalculateSavingThrow(character.Class, "STR", character.Level, character.STR)}}</p>
+      <p>DEX: {{CalculateSavingThrow(character.Class, "DEX", character.Level, character.DEX)}}</p>
+      <p>CON: {{CalculateSavingThrow(character.Class, "CON", character.Level, character.CON)}}</p>
+      <p>INT: {{CalculateSavingThrow(character.Class, "INT", character.Level, character.INT)}}</p>
+      <p>WIS: {{CalculateSavingThrow(character.Class, "WIS", character.Level, character.WIS)}}</p>
+      <p>CHA: {{CalculateSavingThrow(character.Class, "CHA", character.Level, character.CHA)}}</p>
+    </p-card>
   </li>
 </ul>
