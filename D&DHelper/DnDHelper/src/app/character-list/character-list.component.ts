@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { CardModule } from 'primeng/card';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -49,21 +48,21 @@ export class CharacterListComponent implements OnInit {
           return this.ShowModifier(statsc);
         }
       case 'Bard':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "DEX" || stat == "CHA") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {
           return this.ShowModifier(statsc);
         }
       case 'Cleric':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "WIS" || stat == "CHA") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {
           return this.ShowModifier(statsc);
         }
       case 'Druid':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "INT" || stat == "WIS") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {
@@ -77,49 +76,49 @@ export class CharacterListComponent implements OnInit {
           return this.ShowModifier(statsc);
         }
       case 'Monk':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "STR" || stat == "DEX") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {
           return this.ShowModifier(statsc);
         }
       case 'Paladin':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "WIS" || stat == "CHA") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {
           return this.ShowModifier(statsc);
         }
       case 'Ranger':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "STR" || stat == "DEX") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {
           return this.ShowModifier(statsc);
         }
       case 'Rogue':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "DEX" || stat == "INT") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {
           return this.ShowModifier(statsc);
         }
       case 'Sorcerer':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "CON" || stat == "CHA") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {
           return this.ShowModifier(statsc);
         }
       case 'Warlock':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "WIS" || stat == "CHA") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {
           return this.ShowModifier(statsc);
         }
       case 'Wizard':
-        if (stat == "STR" || stat == "CON") {
+        if (stat == "INT" || stat == "WIS") {
           return this.CalculateProficientThrow(level, statsc) + " (Proficient)"
         }
         else {

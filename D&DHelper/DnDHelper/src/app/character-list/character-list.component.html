@@ -1,10 +1,13 @@
 <ul>
   <li *ngFor="let character of characters | async">
-    <p-card header="{{character.Name}}">
+    <p-card>
+      <h3>{{character.Name}}</h3>
       <h4>Basic Info</h4>
       <p>Level {{character.Level}} {{character.Race}} {{character.Subclass}} {{character.Class}}</p>
       <p>Proficiency Bonus: +{{CalculateProficiencyBonus(character.Level)}}</p>
       <h4>Stats</h4>
+      <p>HP: {{character.HP}}</p>
+      <p>AC: {{character.AC}}</p>
       <p>STR: {{character.STR}} ({{ShowModifier(character.STR)}})</p>
       <p>DEX: {{character.DEX}} ({{ShowModifier(character.DEX)}})</p>
       <p>CON: {{character.CON}} ({{ShowModifier(character.CON)}})</p>
@@ -18,6 +21,10 @@
       <p>INT: {{CalculateSavingThrow(character.Class, "INT", character.Level, character.INT)}}</p>
       <p>WIS: {{CalculateSavingThrow(character.Class, "WIS", character.Level, character.WIS)}}</p>
       <p>CHA: {{CalculateSavingThrow(character.Class, "CHA", character.Level, character.CHA)}}</p>
+      <h4>Skill Checks</h4>
+      <p>Proficiencies on Skill Checks are a WIP</p>
+      <button pButton type="button" label="Edit"></button>
+      <button pButton type="button" label="Delete" class="p-button-danger"></button>
     </p-card>
   </li>
 </ul>
