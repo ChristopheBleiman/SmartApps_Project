@@ -18,18 +18,26 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { CharacterListComponent } from './character-list/character-list.component';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-
+import { AngularFirestoreCollection, AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireModule} from '@angular/fire/compat';
+import { AngularFireAuthModule} from '@angular/fire/compat/auth';
+import { LoginGoogleComponent } from './login-google/login-google.component';
+import { AuthService } from './auth.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+ 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    AngularFireModule,
+    AngularFireAuthModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/compendium', pathMatch: 'full' },
       { path: 'compendium', component: CompendiumComponent },
       { path: 'compendium/spells/:spellIndex', component: SpellDetailsComponent },
       { path: 'diceroller', component: DicerollerComponent },
       { path: 'characters', component: CharacterListComponent },
+      { path: 'login-google', component: LoginGoogleComponent}
     ]),
     ButtonModule,
     InputNumberModule,
@@ -47,9 +55,10 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     TabNavComponent,
     CompendiumComponent,
     SpellDetailsComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    LoginGoogleComponent,
    ],
-  providers: [],
+  providers: [AuthService, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
