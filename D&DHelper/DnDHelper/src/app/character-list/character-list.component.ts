@@ -128,4 +128,7 @@ export class CharacterListComponent implements OnInit {
         return this.ShowModifier(statsc);
     }
   }
+  AddCharacter(){
+
+  }
 }
