@@ -16,7 +16,7 @@ ul {
 .container {
   margin-left: 5rem;
   margin-right: 5rem;
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
 }
 
@@ -80,3 +80,22 @@ a:hover {
   font-size: 5rem;
 }
 
+.buttonPlacement{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonPlacement button{
+  font-size: 2rem;
+}
+
+.disclaimer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disclaimer h5 {
+  color: red;
+}
