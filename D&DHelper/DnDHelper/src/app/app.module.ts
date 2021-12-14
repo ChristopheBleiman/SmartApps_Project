@@ -1,7 +1,12 @@
+import { Firestore } from '@angular/fire/firestore';
 import { Input, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import {CardModule} from 'primeng/card';
+import {InputTextModule} from 'primeng/inputtext';
+import {DropdownModule} from 'primeng/dropdown';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component';
 import { DicerollerComponent } from './diceroller/diceroller.component';
@@ -13,18 +18,19 @@ import { CompendiumComponent } from './compendium/compendium.component';
 import { SpellDetailsComponent } from './spell-details/spell-details.component';
 import { FormsModule } from '@angular/forms';
 import {InputNumberModule} from 'primeng/inputnumber';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { CharacterListComponent } from './character-list/character-list.component';
-import { AngularFirestoreCollection, AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule} from '@angular/fire/compat/storage';
+import { AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import { AngularFireModule} from '@angular/fire/compat';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AngularFireAuthModule} from '@angular/fire/compat/auth';
 import { LoginGoogleComponent } from './login-google/login-google.component';
-import { AuthService } from './auth.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
- 
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { AddCharacterComponent } from './add-character/add-character.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -37,17 +43,25 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
       { path: 'compendium/spells/:spellIndex', component: SpellDetailsComponent },
       { path: 'diceroller', component: DicerollerComponent },
       { path: 'characters', component: CharacterListComponent },
+      { path: 'characters/add', component: AddCharacterComponent },
       { path: 'login-google', component: LoginGoogleComponent}
     ]),
     ButtonModule,
     InputNumberModule,
+    InputTextModule,
+    CardModule,
     ToolbarModule,
     TabMenuModule,
+    DropdownModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     provideFirestore(() => getFirestore()),
-    AngularFirestoreModule.enablePersistence(),
+    AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
   ],
   declarations: [
     AppComponent,
@@ -57,8 +71,9 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
     SpellDetailsComponent,
     CharacterListComponent,
     LoginGoogleComponent,
+      AddCharacterComponent
    ],
-  providers: [AuthService, AngularFirestore],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,8 +9,15 @@ img {
 	border: 0;
 }
 
-router-outlet + *  {
-  padding: 1rem;
+ul {
+  list-style: none;
+}
+
+.container {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 body {
@@ -49,5 +56,66 @@ a:hover {
 
 .myOverride .p-inputtext {
 	font-size: 1.5rem;
-	width: 2rem;
+	width: 3rem;
+}
+
+.p-card {
+  margin-top: 2rem;
+}
+
+.p-card h4{
+  font-size: 2rem;
+}
+
+.p-card p{
+  font-size: 1.5rem;
+}
+
+.p-card button{
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+.p-card-subheader{
+  font-size: 5rem;
+}
+
+.buttonPlacement{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonPlacement button{
+  font-size: 2rem;
+}
+
+.disclaimer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disclaimer h5 {
+  color: red;
+}
+
+.OverrideBasicI .p-inputtext {
+	font-size: 1.8rem;
+	width: 28rem;
+}
+
+.OverrideBasicI #Class .p-inputtext {
+	font-size: 1.8rem;
+	width: 15rem;
+}
+
+.OverrideBasicI #Level .p-inputtext {
+	font-size: 1.8rem;
+	width: 5rem;
+}
+
+.OverrideStats .p-inputtext {
+	font-size: 1.8rem;
+	width: 5rem;
 }

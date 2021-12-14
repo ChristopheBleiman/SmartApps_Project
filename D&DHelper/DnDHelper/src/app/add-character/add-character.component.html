@@ -1,0 +1,22 @@
+<div class="disclaimer">
+  <h5>DISCLAIMER: This app does not validate character builds. It is mainly used to store them. Please check with your DM on how to build your character!</h5>
+</div>
+<h4>Basic Info</h4>
+<ul>
+  <div class="OverrideBasicI"><li id="Name">Name: <input type="text" [(ngModel)]="characterName" pInputText></li></div>
+  <div class="OverrideBasicI"><li id="Class">Class: <p-dropdown [options]="classes" [(ngModel)]="characterClass" class="dropdown"></p-dropdown></li></div>
+  <div class="OverrideBasicI"><li id="SubClass">Subclass: <input type="text" [(ngModel)]="characterSubclass" pInputText></li></div>
+  <div class="OverrideBasicI"><li id="Level">Level: <p-inputNumber [(ngModel)]="characterLevel" mode="decimal" [min]="0" [max]="20"></p-inputNumber></li></div>
+</ul>
+<h4>Stats</h4>
+<ul>
+  <div class="OverrideStats"><li id="HP">HP: <p-inputNumber [(ngModel)]="characterHP" mode="decimal" [min]="0"></p-inputNumber></li></div>
+  <div class="OverrideStats"><li id="AC">AC: <p-inputNumber [(ngModel)]="characterAC" mode="decimal" [min]="0"></p-inputNumber></li></div>
+  <div class="OverrideStats"><li id="STR">STR: <p-inputNumber [(ngModel)]="characterSTR" mode="decimal" [min]="0" [max]="30"></p-inputNumber>({{ShowModifier(characterSTR)}})</li></div>
+  <div class="OverrideStats"><li id="DEX">DEX: <p-inputNumber [(ngModel)]="characterDEX" mode="decimal" [min]="0" [max]="30"></p-inputNumber>({{ShowModifier(characterDEX)}})</li></div>
+  <div class="OverrideStats"><li id="CON">CON: <p-inputNumber [(ngModel)]="characterCON" mode="decimal" [min]="0" [max]="30"></p-inputNumber>({{ShowModifier(characterCON)}})</li></div>
+  <div class="OverrideStats"><li id="INT">INT: <p-inputNumber [(ngModel)]="characterINT" mode="decimal" [min]="0" [max]="30"></p-inputNumber>({{ShowModifier(characterINT)}})</li></div>
+  <div class="OverrideStats"><li id="WIS">WIS: <p-inputNumber [(ngModel)]="characterWIS" mode="decimal" [min]="0" [max]="30"></p-inputNumber>({{ShowModifier(characterWIS)}})</li></div>
+  <div class="OverrideStats"><li id="CHA">CHA: <p-inputNumber [(ngModel)]="characterCHA" mode="decimal" [min]="0" [max]="30"></p-inputNumber>({{ShowModifier(characterCHA)}})</li></div>
+</ul>
+<button pButton type="button" label="Create" class="p-button-lg"></button>

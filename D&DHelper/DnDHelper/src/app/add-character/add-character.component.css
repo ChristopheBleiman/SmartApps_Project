@@ -1,0 +1,42 @@
+.Override{
+	margin-bottom: 1rem;
+}
+
+ul li:first-child {
+  margin-top: 1rem;
+}
+
+ul {
+  font-size: 2rem;
+}
+
+#HP p-inputNumber{
+  margin-left: 2rem;
+}
+#AC p-inputNumber{
+  margin-left: 2.1rem;
+}
+#STR p-inputNumber{
+  margin-left: 1.1rem;
+  margin-right: 1.5rem;
+}
+#DEX p-inputNumber{
+  margin-left: 1rem;
+  margin-right: 1.5rem;
+}
+#CON p-inputNumber{
+  margin-left: 0.6rem;
+  margin-right: 1.5rem;
+}
+#INT p-inputNumber{
+  margin-left: 1.6rem;
+  margin-right: 1.5rem;
+}
+#WIS p-inputNumber{
+  margin-left: 1.2rem;
+  margin-right: 1.5rem;
+}
+#CHA p-inputNumber{
+  margin-left: 0.7rem;
+  margin-right: 1.5rem;
+}
