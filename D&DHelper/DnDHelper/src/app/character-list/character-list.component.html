@@ -26,7 +26,7 @@
       <p>CHA: {{CalculateSavingThrow(character.Class, "CHA", character.Level, character.CHA)}}</p>
       <h4>Skill Checks</h4>
       <p>Proficiencies on Skill Checks are a WIP</p>
-      <button pButton type="button" label="Edit"></button>
+      <button pButton type="button" label="Edit" (click)="EditCharacter(character)"></button>
       <button pButton type="button" label="Delete" class="p-button-danger"></button>
     </p-card>
   </li>

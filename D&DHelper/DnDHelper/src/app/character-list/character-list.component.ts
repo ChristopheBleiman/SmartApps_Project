@@ -131,4 +131,12 @@ export class CharacterListComponent implements OnInit {
   AddCharacter(){
 
   }
+
+  /* =======================================================
+     EDIT CHARS
+    ======================================================== */
+
+  EditCharacter(id: any){
+    console.log(id);
+  }
 }
