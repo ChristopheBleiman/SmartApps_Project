@@ -19,4 +19,5 @@
   <div class="OverrideStats"><li id="WIS">WIS: <p-inputNumber [(ngModel)]="characterWIS" mode="decimal" [min]="0" [max]="30"></p-inputNumber>({{ShowModifier(characterWIS)}})</li></div>
   <div class="OverrideStats"><li id="CHA">CHA: <p-inputNumber [(ngModel)]="characterCHA" mode="decimal" [min]="0" [max]="30"></p-inputNumber>({{ShowModifier(characterCHA)}})</li></div>
 </ul>
-<button pButton type="button" label="Create" class="p-button-lg"></button>
+<div class="ErrorMessage" [innerText]="ErrorString"></div>
+<button pButton type="button" label="Create" class="p-button-lg" (click)="CreateCharacter()"></button>
