@@ -4,7 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import {CardModule} from 'primeng/card';
-
+import {InputTextModule} from 'primeng/inputtext';
+import {DropdownModule} from 'primeng/dropdown';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component';
 import { DicerollerComponent } from './diceroller/diceroller.component';
@@ -46,9 +48,12 @@ import { AddCharacterComponent } from './add-character/add-character.component';
     ]),
     ButtonModule,
     InputNumberModule,
+    InputTextModule,
     CardModule,
     ToolbarModule,
     TabMenuModule,
+    DropdownModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
