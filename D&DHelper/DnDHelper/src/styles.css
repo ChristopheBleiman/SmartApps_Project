@@ -99,3 +99,23 @@ a:hover {
 .disclaimer h5 {
   color: red;
 }
+
+.OverrideBasicI .p-inputtext {
+	font-size: 1.8rem;
+	width: 28rem;
+}
+
+.OverrideBasicI #Class .p-inputtext {
+	font-size: 1.8rem;
+	width: 15rem;
+}
+
+.OverrideBasicI #Level .p-inputtext {
+	font-size: 1.8rem;
+	width: 5rem;
+}
+
+.OverrideStats .p-inputtext {
+	font-size: 1.8rem;
+	width: 5rem;
+}
