@@ -12,12 +12,9 @@ export class TabNavComponent {
 
   constructor(private url:LocationStrategy) {
     this.items = [];
-    this.activeItem = this.items[0];
   }
 
   items: MenuItem[];
-
-  activeItem: MenuItem;
 
   ngOnInit() {
       this.items = [
@@ -28,33 +25,5 @@ export class TabNavComponent {
           {label: 'Initiative Tracker', icon: 'pi pi-fw pi-sort-numeric-down-alt'},
           {label: 'Login', icon: 'pi pi-user', routerLink: ['/login-google']}
       ];
-      if(this.url.path()==='/compendium'){
-
-        this.activeItem = this.items[0];
-      }
-      else if(this.url.path()==='/diceroller'){
-
-        this.activeItem = this.items[1];
-      }
-      else if(this.url.path()==='/characters'){
-
-        this.activeItem = this.items[2];
-      }
-      else if(this.url.path()==='/campaigns'){
-
-        this.activeItem = this.items[3];
-      }
-      else if(this.url.path()==='/initiative'){
-
-        this.activeItem = this.items[4];
-      }
-      else if(this.url.path() ==='/login-google'){
-        this.activeItem = this.items[5]
-      }
-      else{
-
-        this.activeItem = this.items[0];
-      }
-
   }
 }

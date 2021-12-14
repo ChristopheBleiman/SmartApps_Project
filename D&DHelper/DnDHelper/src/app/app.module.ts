@@ -6,7 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MenubarModule} from 'primeng/menubar';
+
 
 import { AppComponent } from './app.component';
 import { DicerollerComponent } from './diceroller/diceroller.component';
@@ -55,6 +57,7 @@ import { EditCharacterComponent } from './edit-character/edit-character.componen
     ToolbarModule,
     TabMenuModule,
     DropdownModule,
+    MenubarModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
