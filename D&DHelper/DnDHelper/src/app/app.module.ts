@@ -30,6 +30,7 @@ import { LoginGoogleComponent } from './login-google/login-google.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { AddCharacterComponent } from './add-character/add-character.component';
+import { EditCharacterComponent } from './edit-character/edit-character.component';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { AddCharacterComponent } from './add-character/add-character.component';
       { path: 'diceroller', component: DicerollerComponent },
       { path: 'characters', component: CharacterListComponent },
       { path: 'characters/add', component: AddCharacterComponent },
+      { path: 'characters/edit', component: EditCharacterComponent},
       { path: 'login-google', component: LoginGoogleComponent}
     ]),
     ButtonModule,
@@ -71,7 +73,8 @@ import { AddCharacterComponent } from './add-character/add-character.component';
     SpellDetailsComponent,
     CharacterListComponent,
     LoginGoogleComponent,
-      AddCharacterComponent
+      AddCharacterComponent,
+      EditCharacterComponent
    ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
