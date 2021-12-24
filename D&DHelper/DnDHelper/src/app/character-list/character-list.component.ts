@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Firestore, collectionData, collection, where, query, getDocs } from '@angular/fire/firestore';
+import { getAuth } from "firebase/auth";
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,10 +9,16 @@ import { Observable } from 'rxjs';
   styleUrls: ['./character-list.component.css'],
 })
 export class CharacterListComponent implements OnInit {
-  characters: Observable<any[]>;
+  characters: Observable<any[]> | undefined;
+  user: any;
   constructor(firestore: Firestore) {
     const Collection = collection(firestore, 'characters');
-    this.characters = collectionData(Collection);
+    const auth = getAuth();
+    this.user = auth.currentUser;
+    if (this.user) {
+      const q = query(Collection, where("UserUID", "==", this.user.uid));
+      this.characters = collectionData(q);
+    }
   }
   ngOnInit() {}
 
