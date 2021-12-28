@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Firestore, collectionData, collection, where, query, getDocs } from '@angular/fire/firestore';
 import { getAuth } from "firebase/auth";
 import { Observable } from 'rxjs';
-import { doc, where, getDoc, getDocs, query } from 'firebase/firestore';
 
 export interface Character { name: string}
 
@@ -15,7 +14,7 @@ export interface Character { name: string}
 export class CharacterListComponent implements OnInit {
   characters: Observable<any[]> | undefined;
   user: any;
-  constructor(firestore: Firestore) {
+  constructor(private firestore: Firestore) {
     const Collection = collection(firestore, 'characters');
     const auth = getAuth();
     this.user = auth.currentUser;
