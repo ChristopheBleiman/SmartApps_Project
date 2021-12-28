@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+
+import { Firestore, collectionData, collection, where, query, getDocs } from '@angular/fire/firestore';
+import { getAuth } from "firebase/auth";
 import { Observable } from 'rxjs';
 import { doc, where, getDoc, getDocs, query } from 'firebase/firestore';
 
@@ -12,13 +13,16 @@ export interface Character { name: string}
   styleUrls: ['./character-list.component.css'],
 })
 export class CharacterListComponent implements OnInit {
-  characters: Observable<any[]>;
-  private charCollection : any;
-
-  constructor(private firestore: Firestore, private db: AngularFirestore) {
+  characters: Observable<any[]> | undefined;
+  user: any;
+  constructor(firestore: Firestore) {
     const Collection = collection(firestore, 'characters');
-    this.charCollection = db.collection('characters');
-    this.characters = collectionData(Collection);
+    const auth = getAuth();
+    this.user = auth.currentUser;
+    if (this.user) {
+      const q = query(Collection, where("UserUID", "==", this.user.uid));
+      this.characters = collectionData(q);
+    }
   }
   ngOnInit() {}
 
