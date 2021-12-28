@@ -1,8 +1,11 @@
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+
+import { Firestore, collectionData, collection, where, query, getDocs } from '@angular/fire/firestore';
+import { getAuth } from "firebase/auth";
 import { Observable } from 'rxjs';
-import { doc, where, getDoc, getDocs, query } from 'firebase/firestore';
+import {ConfirmationService, MessageService} from 'primeng/api';
+import { deleteDoc, doc } from 'firebase/firestore';
 
 export interface Character { name: string}
 
@@ -10,15 +13,17 @@ export interface Character { name: string}
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.css'],
+  providers: [ConfirmationService,MessageService]
 })
 export class CharacterListComponent implements OnInit {
-  characters: Observable<any[]>;
-  private charCollection : any;
-
-  constructor(private firestore: Firestore, private db: AngularFirestore) {
-    const Collection = collection(firestore, 'characters');
-    this.charCollection = db.collection('characters');
-    this.characters = collectionData(Collection);
+  characters: Observable<any[]> | undefined;
+  user: any;
+  constructor(private firestore: AngularFirestore, private firebase: Firestore, private confirmationService: ConfirmationService) {
+    const auth = getAuth();
+    this.user = auth.currentUser;
+    if (this.user) {
+      this.characters = firestore.collection('characters', ref => ref.where('UserUID', '==', this.user.uid)).valueChanges({idField: 'id'});
+    }
   }
   ngOnInit() {}
 
@@ -135,8 +140,16 @@ export class CharacterListComponent implements OnInit {
         return this.ShowModifier(statsc);
     }
   }
-  AddCharacter(){
 
+  confirmDelete(char: any, event: any) {
+    this.confirmationService.confirm({
+        target: event.target,
+        icon: 'pi pi-exclamation-triangle',
+        message: 'Are you sure you want to delete this character? This action cannot be undone',
+        accept: async () => {
+          await deleteDoc(doc(this.firebase, "characters", char.id))
+        }
+    });
   }
 
   /* =======================================================
@@ -144,7 +157,7 @@ export class CharacterListComponent implements OnInit {
     ======================================================== */
 
   async EditCharacter(char: any){
-    const q = query(collection(this.firestore, "characters"), where("Name", "==", `${char.Name}`))
+    const q = query(collection(this.firebase, "characters"), where("Name", "==", `${char.Name}`))
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       console.log(doc.id)

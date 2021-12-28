@@ -25,6 +25,7 @@ export class AddCharacterComponent implements OnInit {
   characterCHA: number = 0;
   ErrorString: string = "";
   charactersCollection: any;
+  user: any;
 
   classes: string[];
 
@@ -33,6 +34,8 @@ export class AddCharacterComponent implements OnInit {
       "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"
     ];
     this.charactersCollection = db.collection('characters');
+    const auth = getAuth();
+    this.user = auth.currentUser;
   }
 
   ngOnInit() {
@@ -48,9 +51,7 @@ export class AddCharacterComponent implements OnInit {
   }
 
   CreateCharacter() {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (!user) {
+    if (!this.user) {
       this.ErrorString = "Please log in before making a character";
     }
     else if (this.characterName.trim() == "" || this.characterName == null ||
@@ -79,7 +80,7 @@ export class AddCharacterComponent implements OnInit {
         INT: this.characterINT,
         WIS: this.characterWIS,
         CHA: this.characterCHA,
-        UserUID: user?.uid
+        UserUID: this.user.uid
       });
       this.router.navigate(['/characters']);
     }

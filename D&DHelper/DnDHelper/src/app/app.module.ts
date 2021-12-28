@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MenubarModule} from 'primeng/menubar';
 
 
+
 import { AppComponent } from './app.component';
 import { DicerollerComponent } from './diceroller/diceroller.component';
 import {ButtonModule} from 'primeng/button';
@@ -33,6 +34,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { AddCharacterComponent } from './add-character/add-character.component';
 import { EditCharacterComponent } from './edit-character/edit-character.component';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
+
 
 @NgModule({
   imports: [
@@ -58,6 +61,7 @@ import { EditCharacterComponent } from './edit-character/edit-character.componen
     TabMenuModule,
     DropdownModule,
     MenubarModule,
+    ConfirmPopupModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),

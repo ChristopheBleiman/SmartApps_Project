@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { InputNumber } from 'primeng/inputnumber';
+import {Router} from "@angular/router"
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { documentId } from '@angular/fire/firestore';
 
@@ -25,7 +25,7 @@ export class EditCharacterComponent implements OnInit {
   charCHA : string = this.char.CHA;
   charactersCollection: any;
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private router: Router) {
     this.charactersCollection = db.collection('characters');
    }
 
@@ -51,6 +51,7 @@ export class EditCharacterComponent implements OnInit {
       WIS: this.char.WIS,
       CHA: this.char.CHA
     });
+    this.router.navigate(['/characters']);
   }
 
 }
