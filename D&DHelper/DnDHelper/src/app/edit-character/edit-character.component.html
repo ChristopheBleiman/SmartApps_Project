@@ -1,14 +1,17 @@
-<p-card>
-    <h3 id="characterName"></h3>
-    <h4>Basic Info</h4>
-    <p id="basicInfo"></p>
-    <h4>Stats</h4>
-    <label for="HP">HP: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charHP"></p-inputNumber><br><br>
-    <label for="AC">AC: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charAC"></p-inputNumber><br><br>
-    <label for="STR">STR: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charSTR"></p-inputNumber><br><br>
-    <label for="DEX">DEX: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charDEX"></p-inputNumber><br><br>
-    <label for="INT">INT: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charINT"></p-inputNumber><br><br>
-    <label for="WIS">WIS: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charWIS"></p-inputNumber><br><br>
-    <label for="CHA">CHA: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charCHA"></p-inputNumber><br><br>
-    <button pButton type="button" label="Edit" (click)="editChar()"></button>
-</p-card>
+<h3 id="characterName"></h3>
+<h4>Basic Info</h4>
+<ul>
+    <li id="Level">Level: <p-inputNumber inputId="charEditLevel" [showButtons]="true" mode="decimal" [(ngModel)]="charLevel"></p-inputNumber></li>
+    <li id="Subclass">Subclass: <input id="charEditSubclass" type="text" [(ngModel)]="charSubclass" pInputText></li>
+</ul>
+<h4>Stats</h4>
+<ul>
+    <li id="HP">HP: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charHP"></p-inputNumber></li>
+    <li id="AC">AC: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charAC"></p-inputNumber></li>
+    <li id="STR">STR: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charSTR"></p-inputNumber></li>
+    <li id="DEX">DEX: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charDEX"></p-inputNumber></li>
+    <li id="INT">INT: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charINT"></p-inputNumber></li>
+    <li id="WIS">WIS: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charWIS"></p-inputNumber></li>
+    <li id="CHA">CHA: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charCHA"></p-inputNumber></li>
+</ul>
+<button pButton type="button" label="Edit" (click)="editChar()"></button>
