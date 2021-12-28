@@ -9,15 +9,20 @@ import { documentId } from '@angular/fire/firestore';
   styleUrls: ['./edit-character.component.css']
 })
 export class EditCharacterComponent implements OnInit {
-  charName : string = window.localStorage.getItem("charName")!;
-  charHP : string = window.localStorage.getItem("charHP")!;
-  charAC : string = window.localStorage.getItem("charAC")!;
-  charSTR : string = window.localStorage.getItem("charSTR")!;
-  charDEX : string = window.localStorage.getItem("charDEX")!;
-  charCON : string = window.localStorage.getItem("charCON")!;
-  charINT : string = window.localStorage.getItem("charINT")!;
-  charWIS : string = window.localStorage.getItem("charWIS")!;
-  charCHA : string = window.localStorage.getItem("charCHA")!;
+  
+  char: any = JSON.parse(window.localStorage.getItem("char")!);
+
+  charLevel: string = this.char.Level;
+  charSubclass : string = this.char.Subclass;
+  charName : string = this.char.Name;
+  charHP : string = this.char.HP;
+  charAC : string = this.char.AC;
+  charSTR : string = this.char.STR;
+  charDEX : string = this.char.DEX;
+  charCON : string = this.char.CON;
+  charINT : string = this.char.INT;
+  charWIS : string = this.char.WIS;
+  charCHA : string = this.char.CHA;
   charactersCollection: any;
 
   constructor(private db: AngularFirestore, private router: Router) {
@@ -25,28 +30,26 @@ export class EditCharacterComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    let charLevel = window.localStorage.getItem("charLevel");
-    let charRace = window.localStorage.getItem("charRace");
-    let charSubclass = window.localStorage.getItem("charSubclass");
-    let charClass = window.localStorage.getItem("charClass");
-    let basicInf = document.querySelector('#basicInfo')!;
-    basicInf.innerHTML = `Level ${charLevel} ${charRace} ${charSubclass} ${charClass}`;
-
-    let charName = window.localStorage.getItem("charName")!;
     let charH3 = document.querySelector('#characterName')!;
-    charH3.innerHTML = charName;
+    charH3.innerHTML = this.char.Name;
   }
 
   editChar(){
     let docId = window.localStorage.getItem("docId");
+
+    let charEditLevel = document.querySelector('#charEditLevel')!.ariaValueNow;
+    let charEditSubclass = document.querySelector('#charEditSubclass')!;
+    console.log(charEditSubclass);
     this.charactersCollection.doc(`${docId}`).update({
-      HP: this.charHP,
-      AC: this.charAC,
-      STR: this.charSTR,
-      DEX: this.charDEX,
-      INT: this.charINT,
-      WIS: this.charWIS,
-      CHA: this.charCHA
+      Level: charEditLevel,
+      Sublass: this.char.Subclass,
+      HP: this.char.HP,
+      AC: this.char.AC,
+      STR: this.char.STR,
+      DEX: this.char.DEX,
+      INT: this.char.INT,
+      WIS: this.char.WIS,
+      CHA: this.char.CHA
     });
     this.router.navigate(['/characters']);
   }

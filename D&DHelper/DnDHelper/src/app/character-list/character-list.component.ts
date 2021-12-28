@@ -163,19 +163,6 @@ export class CharacterListComponent implements OnInit {
       console.log(doc.id)
       window.localStorage.setItem("docId", doc.id);
     })
-
-    window.localStorage.setItem("charName", char.Name);
-    window.localStorage.setItem("charLevel", char.Level);
-    window.localStorage.setItem("charRace", char.Race);
-    window.localStorage.setItem("charSubclass", char.Subclass);
-    window.localStorage.setItem("charClass", char.Class);
-    window.localStorage.setItem("charHP", char.HP);
-    window.localStorage.setItem("charAC", char.AC);
-    window.localStorage.setItem("charSTR", char.STR);
-    window.localStorage.setItem("charDEX", char.DEX);
-    window.localStorage.setItem("charCON", char.CON);
-    window.localStorage.setItem("charINT", char.INT);
-    window.localStorage.setItem("charWIS", char.WIS);
-    window.localStorage.setItem("charCHA", char.CHA);
+    window.localStorage.setItem("char", JSON.stringify(char));
   }
 }
