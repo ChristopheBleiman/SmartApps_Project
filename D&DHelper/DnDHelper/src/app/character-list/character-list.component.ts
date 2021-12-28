@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Firestore, collectionData, collection, where, query, getDocs } from '@angular/fire/firestore';
 import { getAuth } from "firebase/auth";
 import { Observable } from 'rxjs';
+import { doc, where, getDoc, getDocs, query } from 'firebase/firestore';
+
+export interface Character { name: string}
 
 @Component({
   selector: 'app-character-list',
@@ -137,5 +141,32 @@ export class CharacterListComponent implements OnInit {
   }
   AddCharacter(){
 
+  }
+
+  /* =======================================================
+     EDIT CHARS
+    ======================================================== */
+
+  async EditCharacter(char: any){
+    const q = query(collection(this.firestore, "characters"), where("Name", "==", `${char.Name}`))
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id)
+      window.localStorage.setItem("docId", doc.id);
+    })
+
+    window.localStorage.setItem("charName", char.Name);
+    window.localStorage.setItem("charLevel", char.Level);
+    window.localStorage.setItem("charRace", char.Race);
+    window.localStorage.setItem("charSubclass", char.Subclass);
+    window.localStorage.setItem("charClass", char.Class);
+    window.localStorage.setItem("charHP", char.HP);
+    window.localStorage.setItem("charAC", char.AC);
+    window.localStorage.setItem("charSTR", char.STR);
+    window.localStorage.setItem("charDEX", char.DEX);
+    window.localStorage.setItem("charCON", char.CON);
+    window.localStorage.setItem("charINT", char.INT);
+    window.localStorage.setItem("charWIS", char.WIS);
+    window.localStorage.setItem("charCHA", char.CHA);
   }
 }

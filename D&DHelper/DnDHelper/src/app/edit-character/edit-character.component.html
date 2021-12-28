@@ -1,0 +1,14 @@
+<p-card>
+    <h3 id="characterName"></h3>
+    <h4>Basic Info</h4>
+    <p id="basicInfo"></p>
+    <h4>Stats</h4>
+    <label for="HP">HP: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charHP"></p-inputNumber><br><br>
+    <label for="AC">AC: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charAC"></p-inputNumber><br><br>
+    <label for="STR">STR: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charSTR"></p-inputNumber><br><br>
+    <label for="DEX">DEX: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charDEX"></p-inputNumber><br><br>
+    <label for="INT">INT: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charINT"></p-inputNumber><br><br>
+    <label for="WIS">WIS: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charWIS"></p-inputNumber><br><br>
+    <label for="CHA">CHA: </label><p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charCHA"></p-inputNumber><br><br>
+    <button pButton type="button" label="Edit" (click)="editChar()"></button>
+</p-card>
