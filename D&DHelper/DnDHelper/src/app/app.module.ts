@@ -35,6 +35,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { AddCharacterComponent } from './add-character/add-character.component';
 import { EditCharacterComponent } from './edit-character/edit-character.component';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import { CampaignListComponent } from './campaign-list/campaign-list.component';
+import { AddCampaignComponent } from './add-campaign/add-campaign.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import {ConfirmPopupModule} from 'primeng/confirmpopup';
       { path: 'characters', component: CharacterListComponent },
       { path: 'characters/add', component: AddCharacterComponent },
       { path: 'characters/edit', component: EditCharacterComponent},
+      { path: 'campaigns', component: CampaignListComponent},
+      { path: 'campaigns/add', component: AddCampaignComponent},
       { path: 'login-google', component: LoginGoogleComponent}
     ]),
     ButtonModule,
@@ -81,7 +85,9 @@ import {ConfirmPopupModule} from 'primeng/confirmpopup';
     CharacterListComponent,
     LoginGoogleComponent,
       AddCharacterComponent,
-      EditCharacterComponent
+      EditCharacterComponent,
+      CampaignListComponent,
+      AddCampaignComponent
    ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

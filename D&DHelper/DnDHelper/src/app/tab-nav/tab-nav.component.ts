@@ -21,7 +21,7 @@ export class TabNavComponent {
           {label: 'Compendium', icon: 'pi pi-fw pi-search', routerLink: ['/compendium']},
           {label: 'Dice Roller', icon: 'pi pi-fw pi-th-large', routerLink: ['/diceroller']},
           {label: 'Characters', icon: 'pi pi-fw pi-file', routerLink: ['/characters']},
-          {label: 'Campaigns', icon: 'pi pi-fw pi-map'},
+          {label: 'Campaigns', icon: 'pi pi-fw pi-map', routerLink: ['/campaigns']},
           {label: 'Initiative Tracker', icon: 'pi pi-fw pi-sort-numeric-down-alt'},
           {label: 'Login', icon: 'pi pi-user', routerLink: ['/login-google']}
       ];

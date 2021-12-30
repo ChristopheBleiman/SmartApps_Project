@@ -37,21 +37,27 @@ export class EditCharacterComponent implements OnInit {
   editChar(){
     let docId = window.localStorage.getItem("docId");
 
-    let charEditLevel = document.querySelector('#charEditLevel')!.ariaValueNow;
-    let charEditSubclass = document.querySelector('#charEditSubclass')!;
-    console.log(charEditSubclass);
+    let charEditLevel = (<HTMLInputElement>document.querySelector('#charEditLevel')).value!;
+    let charEditSubclass = (<HTMLInputElement>document.querySelector('#charEditSubclass')).value!;
+    let charEditHP = (<HTMLInputElement>document.querySelector('#charEditHP')).value!;
+    let charEditAC = (<HTMLInputElement>document.querySelector('#charEditAC')).value!;
+    let charEditSTR = (<HTMLInputElement>document.querySelector('#charEditSTR')).value!;
+    let charEditDEX = (<HTMLInputElement>document.querySelector('#charEditDEX')).value!;
+    let charEditINT = (<HTMLInputElement>document.querySelector('#charEditINT')).value!;
+    let charEditWIS = (<HTMLInputElement>document.querySelector('#charEditWIS')).value!;
+    let charEditCHA = (<HTMLInputElement>document.querySelector('#charEditCHA')).value!;
+    
     this.charactersCollection.doc(`${docId}`).update({
       Level: charEditLevel,
-      Sublass: this.char.Subclass,
-      HP: this.char.HP,
-      AC: this.char.AC,
-      STR: this.char.STR,
-      DEX: this.char.DEX,
-      INT: this.char.INT,
-      WIS: this.char.WIS,
-      CHA: this.char.CHA
+      Subclass: charEditSubclass,
+      HP: charEditHP,
+      AC: charEditAC,
+      STR: charEditSTR,
+      DEX: charEditDEX,
+      INT: charEditINT,
+      WIS: charEditWIS,
+      CHA: charEditCHA
     });
     this.router.navigate(['/characters']);
   }
-
 }

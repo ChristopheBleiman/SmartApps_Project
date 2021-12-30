@@ -1,0 +1,14 @@
+<div class="buttonPlacement">
+    <button pButton type="button" label="Add Campaign" [routerLink]="'/campaigns/add'"></button>
+</div>
+<ul>
+    <li *ngFor="let campaign of campaigns | async">
+        <p-card>
+            <h3>{{campaign.Name}}</h3>
+            <h4>Description</h4>
+            <p>{{campaign.Description}}</p>
+            <button pButton type="button" label="Delete" (click)="confirmDelete(campaign, $event)" class="p-button-danger"></button>
+        </p-card>
+    </li>
+</ul>
+<p-confirmPopup></p-confirmPopup>
