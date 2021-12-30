@@ -4,16 +4,16 @@ import { Component, OnInit } from '@angular/core';
 import { Firestore, collectionData, collection, where, query, getDocs } from '@angular/fire/firestore';
 import { getAuth } from "firebase/auth";
 import { Observable } from 'rxjs';
-import {ConfirmationService, MessageService} from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { deleteDoc, doc } from 'firebase/firestore';
 
-export interface Character { name: string}
+export interface Character { name: string }
 
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.css'],
-  providers: [ConfirmationService,MessageService]
+  providers: [ConfirmationService, MessageService]
 })
 export class CharacterListComponent implements OnInit {
   characters: Observable<any[]> | undefined;
@@ -22,10 +22,10 @@ export class CharacterListComponent implements OnInit {
     const auth = getAuth();
     this.user = auth.currentUser;
     if (this.user) {
-      this.characters = firestore.collection('characters', ref => ref.where('UserUID', '==', this.user.uid)).valueChanges({idField: 'id'});
+      this.characters = firestore.collection('characters', ref => ref.where('UserUID', '==', this.user.uid)).valueChanges({ idField: 'id' });
     }
   }
-  ngOnInit() {}
+  ngOnInit() { }
 
   ShowModifier(score: number) {
     let modifier: number = Math.floor((score - 10) / 2);
@@ -42,8 +42,8 @@ export class CharacterListComponent implements OnInit {
     let proficiency: number = Math.floor(2 + (level - 1) / 4);
     return proficiency;
   }
-  CalculateProficientThrow(level: number, statsc: number){
-    let modifier: number = this.CalculateModifier(statsc)+this.CalculateProficiencyBonus(level);
+  CalculateProficientThrow(level: number, statsc: number) {
+    let modifier: number = this.CalculateModifier(statsc) + this.CalculateProficiencyBonus(level);
     if (modifier >= 0) {
       return '+' + modifier;
     } else {
@@ -143,12 +143,12 @@ export class CharacterListComponent implements OnInit {
 
   confirmDelete(char: any, event: any) {
     this.confirmationService.confirm({
-        target: event.target,
-        icon: 'pi pi-exclamation-triangle',
-        message: 'Are you sure you want to delete this character? This action cannot be undone',
-        accept: async () => {
-          await deleteDoc(doc(this.firebase, "characters", char.id))
-        }
+      target: event.target,
+      icon: 'pi pi-exclamation-triangle',
+      message: 'Are you sure you want to delete this character? This action cannot be undone',
+      accept: async () => {
+        await deleteDoc(doc(this.firebase, "characters", char.id))
+      }
     });
   }
 
@@ -156,13 +156,8 @@ export class CharacterListComponent implements OnInit {
      EDIT CHARS
     ======================================================== */
 
-  async EditCharacter(char: any){
-    const q = query(collection(this.firebase, "characters"), where("Name", "==", `${char.Name}`))
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id)
-      window.localStorage.setItem("docId", doc.id);
-    })
+  async EditCharacter(char: any) {
+    window.localStorage.setItem("docId", char.id);
     window.localStorage.setItem("char", JSON.stringify(char));
   }
 }

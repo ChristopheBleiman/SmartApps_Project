@@ -6,12 +6,12 @@
 </ul>
 <h4>Stats</h4>
 <ul>
-    <li id="HP">HP: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charHP"></p-inputNumber></li>
-    <li id="AC">AC: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charAC"></p-inputNumber></li>
-    <li id="STR">STR: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charSTR"></p-inputNumber></li>
-    <li id="DEX">DEX: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charDEX"></p-inputNumber></li>
-    <li id="INT">INT: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charINT"></p-inputNumber></li>
-    <li id="WIS">WIS: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charWIS"></p-inputNumber></li>
-    <li id="CHA">CHA: <p-inputNumber [showButtons]="true" mode="decimal" [(ngModel)]="charCHA"></p-inputNumber></li>
+    <li id="HP">HP: <p-inputNumber inputId="charEditHP" [showButtons]="true" mode="decimal" [(ngModel)]="charHP"></p-inputNumber></li>
+    <li id="AC">AC: <p-inputNumber inputId="charEditAC" [showButtons]="true" mode="decimal" [(ngModel)]="charAC"></p-inputNumber></li>
+    <li id="STR">STR: <p-inputNumber inputId="charEditSTR" [showButtons]="true" mode="decimal" [(ngModel)]="charSTR"></p-inputNumber></li>
+    <li id="DEX">DEX: <p-inputNumber inputId="charEditDEX" [showButtons]="true" mode="decimal" [(ngModel)]="charDEX"></p-inputNumber></li>
+    <li id="INT">INT: <p-inputNumber inputId="charEditINT" [showButtons]="true" mode="decimal" [(ngModel)]="charINT"></p-inputNumber></li>
+    <li id="WIS">WIS: <p-inputNumber inputId="charEditWIS" [showButtons]="true" mode="decimal" [(ngModel)]="charWIS"></p-inputNumber></li>
+    <li id="CHA">CHA: <p-inputNumber inputId="charEditCHA" [showButtons]="true" mode="decimal" [(ngModel)]="charCHA"></p-inputNumber></li>
 </ul>
 <button pButton type="button" label="Edit" (click)="editChar()"></button>
