@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { getAuth } from 'firebase/auth';
-import { deleteDoc, doc, Firestore } from 'firebase/firestore';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { Component, OnInit } from '@angular/core';
+
+import { Firestore } from '@angular/fire/firestore';
+import { getAuth } from "firebase/auth";
 import { Observable } from 'rxjs';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { deleteDoc, doc } from 'firebase/firestore';
 
 @Component({
   selector: 'app-campaign-list',
@@ -23,7 +25,7 @@ export class CampaignListComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   confirmDelete(campaign: any, event: any) {
@@ -35,6 +37,11 @@ export class CampaignListComponent implements OnInit {
         await deleteDoc(doc(this.firebase, "campaigns", campaign.id))
       }
     });
+  }
+
+  async EditCampaign(campaign: any) {
+    window.localStorage.setItem("docId", campaign.id);
+    window.localStorage.setItem("campaign", JSON.stringify(campaign));
   }
 
 }
