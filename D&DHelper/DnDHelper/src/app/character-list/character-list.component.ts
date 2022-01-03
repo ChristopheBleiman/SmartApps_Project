@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { deleteDoc, doc } from 'firebase/firestore';
 
-export interface Character { name: string }
+//export interface Character { name: string }
 
 @Component({
   selector: 'app-character-list',
@@ -151,10 +151,6 @@ export class CharacterListComponent implements OnInit {
       }
     });
   }
-
-  /* =======================================================
-     EDIT CHARS
-    ======================================================== */
 
   async EditCharacter(char: any) {
     window.localStorage.setItem("docId", char.id);

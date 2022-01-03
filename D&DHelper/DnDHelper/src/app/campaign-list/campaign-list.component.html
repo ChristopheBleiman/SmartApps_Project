@@ -7,6 +7,7 @@
             <h3>{{campaign.Name}}</h3>
             <h4>Description</h4>
             <p>{{campaign.Description}}</p>
+            <button pButton type="button" label="Edit" [routerLink]="'/campaigns/edit'" (click)="EditCampaign(campaign)"></button>
             <button pButton type="button" label="Delete" (click)="confirmDelete(campaign, $event)" class="p-button-danger"></button>
         </p-card>
     </li>

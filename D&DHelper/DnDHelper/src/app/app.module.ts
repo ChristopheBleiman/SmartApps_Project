@@ -37,6 +37,7 @@ import { EditCharacterComponent } from './edit-character/edit-character.componen
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import { CampaignListComponent } from './campaign-list/campaign-list.component';
 import { AddCampaignComponent } from './add-campaign/add-campaign.component';
+import { EditCampaignComponent } from './edit-campaign/edit-campaign.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { AddCampaignComponent } from './add-campaign/add-campaign.component';
       { path: 'characters/edit', component: EditCharacterComponent},
       { path: 'campaigns', component: CampaignListComponent},
       { path: 'campaigns/add', component: AddCampaignComponent},
+      { path: 'campaigns/edit', component: EditCampaignComponent},
       { path: 'login-google', component: LoginGoogleComponent}
     ]),
     ButtonModule,
@@ -84,10 +86,11 @@ import { AddCampaignComponent } from './add-campaign/add-campaign.component';
     SpellDetailsComponent,
     CharacterListComponent,
     LoginGoogleComponent,
-      AddCharacterComponent,
-      EditCharacterComponent,
-      CampaignListComponent,
-      AddCampaignComponent
+    AddCharacterComponent,
+    EditCharacterComponent,
+    CampaignListComponent,
+    AddCampaignComponent,
+    EditCampaignComponent
    ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
