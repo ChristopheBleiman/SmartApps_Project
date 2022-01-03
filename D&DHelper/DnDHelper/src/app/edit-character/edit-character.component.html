@@ -1,17 +1,17 @@
 <h3 id="characterName"></h3>
 <h4>Basic Info</h4>
-<ul>
-    <li id="Level">Level: <p-inputNumber inputId="charEditLevel" [showButtons]="true" mode="decimal" [(ngModel)]="charLevel"></p-inputNumber></li>
-    <li id="Subclass">Subclass: <input id="charEditSubclass" type="text" [(ngModel)]="charSubclass" pInputText></li>
+<ul class="uLists">
+    <div class="myOverride"><li id="Level">Level: <p-inputNumber inputId="charEditLevel" [showButtons]="true" mode="decimal" [(ngModel)]="charLevel"></p-inputNumber></li></div>
+    <div class="myOverrideText"><li id="Subclass">Subclass: <input id="charEditSubclass" type="text" [(ngModel)]="charSubclass" pInputText></li></div>
 </ul>
 <h4>Stats</h4>
-<ul>
-    <li id="HP">HP: <p-inputNumber inputId="charEditHP" [showButtons]="true" mode="decimal" [(ngModel)]="charHP"></p-inputNumber></li>
-    <li id="AC">AC: <p-inputNumber inputId="charEditAC" [showButtons]="true" mode="decimal" [(ngModel)]="charAC"></p-inputNumber></li>
-    <li id="STR">STR: <p-inputNumber inputId="charEditSTR" [showButtons]="true" mode="decimal" [(ngModel)]="charSTR"></p-inputNumber></li>
-    <li id="DEX">DEX: <p-inputNumber inputId="charEditDEX" [showButtons]="true" mode="decimal" [(ngModel)]="charDEX"></p-inputNumber></li>
-    <li id="INT">INT: <p-inputNumber inputId="charEditINT" [showButtons]="true" mode="decimal" [(ngModel)]="charINT"></p-inputNumber></li>
-    <li id="WIS">WIS: <p-inputNumber inputId="charEditWIS" [showButtons]="true" mode="decimal" [(ngModel)]="charWIS"></p-inputNumber></li>
-    <li id="CHA">CHA: <p-inputNumber inputId="charEditCHA" [showButtons]="true" mode="decimal" [(ngModel)]="charCHA"></p-inputNumber></li>
+<ul class="uLists">
+    <div class="myOverride"><li id="HP">HP: <p-inputNumber inputId="charEditHP" [showButtons]="true" mode="decimal" [(ngModel)]="charHP"></p-inputNumber></li></div>
+    <div class="myOverride"><li id="AC">AC: <p-inputNumber inputId="charEditAC" [showButtons]="true" mode="decimal" [(ngModel)]="charAC"></p-inputNumber></li></div>
+    <div class="myOverride"><li id="STR">STR: <p-inputNumber inputId="charEditSTR" [showButtons]="true" mode="decimal" [(ngModel)]="charSTR"></p-inputNumber></li></div>
+    <div class="myOverride"><li id="DEX">DEX: <p-inputNumber inputId="charEditDEX" [showButtons]="true" mode="decimal" [(ngModel)]="charDEX"></p-inputNumber></li></div>
+    <div class="myOverride"><li id="INT">INT: <p-inputNumber inputId="charEditINT" [showButtons]="true" mode="decimal" [(ngModel)]="charINT"></p-inputNumber></li></div>
+    <div class="myOverride"><li id="WIS">WIS: <p-inputNumber inputId="charEditWIS" [showButtons]="true" mode="decimal" [(ngModel)]="charWIS"></p-inputNumber></li></div>
+    <div class="myOverride"><li id="CHA">CHA: <p-inputNumber inputId="charEditCHA" [showButtons]="true" mode="decimal" [(ngModel)]="charCHA"></p-inputNumber></li></div>
 </ul>
-<button pButton type="button" label="Edit" (click)="editChar()"></button>
+<button class="btnEdit" pButton type="button" label="Edit" (click)="editChar()"></button>
