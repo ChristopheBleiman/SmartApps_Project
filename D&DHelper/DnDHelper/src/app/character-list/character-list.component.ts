@@ -7,7 +7,24 @@ import { Observable } from 'rxjs';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { deleteDoc, doc } from 'firebase/firestore';
 
-//export interface Character { name: string }
+export interface Character {
+  Name: string,
+  Level: number,
+  Class: string,
+  Subclass: string,
+  Race: string,
+  HP: number,
+  AC: number,
+  STR: number,
+  DEX: number,
+  CON: number,
+  INT: number,
+  WIS: number,
+  CHA: number,
+  UserUID: string,
+  Proficiencies: any[],
+  id: string
+}
 
 @Component({
   selector: 'app-character-list',
@@ -16,13 +33,16 @@ import { deleteDoc, doc } from 'firebase/firestore';
   providers: [ConfirmationService, MessageService]
 })
 export class CharacterListComponent implements OnInit {
-  characters: Observable<any[]> | undefined;
+  characters!: Observable<any[]>;
   user: any;
   constructor(private firestore: AngularFirestore, private firebase: Firestore, private confirmationService: ConfirmationService) {
     const auth = getAuth();
     this.user = auth.currentUser;
     if (this.user) {
       this.characters = firestore.collection('characters', ref => ref.where('UserUID', '==', this.user.uid)).valueChanges({ idField: 'id' });
+      this.characters.forEach(character => {
+        //character.Proficiencies = firestore.collection("Characters/"+ character.id +"/Proficiencies")
+      });
     }
   }
   ngOnInit() { }

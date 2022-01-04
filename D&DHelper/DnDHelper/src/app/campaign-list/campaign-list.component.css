@@ -1,0 +1,14 @@
+.JoinCampaign{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.JoinCampaign button{
+  font-size: 2rem;
+}
+
+.JoinCampaign input{
+  font-size: 2rem;
+}
