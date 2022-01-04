@@ -15,4 +15,5 @@
     <div class="myOverride"><li id="WIS">WIS: <p-inputNumber inputId="charEditWIS" [showButtons]="true" mode="decimal" [(ngModel)]="charWIS" [min]="1" [max]="30"></p-inputNumber></li></div>
     <div class="myOverride"><li id="CHA">CHA: <p-inputNumber inputId="charEditCHA" [showButtons]="true" mode="decimal" [(ngModel)]="charCHA" [min]="1" [max]="30"></p-inputNumber></li></div>
 </ul>
-<button class="btnEdit" pButton type="button" label="Edit" (click)="editChar()"></button>
+<button class="btnEditChar" pButton type="button" label="Edit" (click)="editChar()"></button>
+<button class="btnEditChar" pButton type="button" label="Back" (click)="btnBack()"></button>
