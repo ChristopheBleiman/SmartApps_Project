@@ -1,15 +1,31 @@
 <div class="buttonPlacement">
-    <button pButton type="button" label="Add Campaign" [routerLink]="'/campaigns/add'"></button>
+  <button pButton type="button" label="Add Campaign" [routerLink]="'/campaigns/add'"></button>
 </div>
-<ul>
-    <li *ngFor="let campaign of campaigns | async">
-        <p-card>
-            <h3>{{campaign.Name}}</h3>
-            <h4>Description</h4>
-            <p>{{campaign.Description}}</p>
-            <button pButton type="button" label="Edit" [routerLink]="'/campaigns/edit'" (click)="EditCampaign(campaign)"></button>
-            <button pButton type="button" label="Delete" (click)="confirmDelete(campaign, $event)" class="p-button-danger"></button>
-        </p-card>
-    </li>
-</ul>
+<div class="JoinCampaign">
+  <input type="text" [(ngModel)]="inviteCode" pInputText>
+  <button pButton type="button" label="Join Campaign" (click)="JoinCampaign()"></button>
+</div>
+<div *ngIf="user != null; else LoggedOut">
+  <div *ngIf="campaigns != null; else NoCampaign">
+    <ul>
+      <li *ngFor="let campaign of campaigns | async">
+          <p-card>
+              <h3>{{campaign.Name}}</h3>
+              <h4>Description</h4>
+              <p>{{campaign.Description}}</p>
+              <h4>Invite Code</h4>
+              <p>{{campaign.id}}</p>
+              <button pButton type="button" label="Edit" [routerLink]="'/campaigns/edit'" (click)="EditCampaign(campaign)"></button>
+              <button pButton type="button" label="Delete" (click)="confirmDelete(campaign, $event)" class="p-button-danger"></button>
+          </p-card>
+      </li>
+    </ul>
+  </div>
+</div>
 <p-confirmPopup></p-confirmPopup>
+<ng-template #NoCampaign>
+  <p>You currently have no campaigns you are in, go make one or join one!</p>
+</ng-template>
+<ng-template #LoggedOut>
+  <p>You are currently not logged in.</p>
+</ng-template>

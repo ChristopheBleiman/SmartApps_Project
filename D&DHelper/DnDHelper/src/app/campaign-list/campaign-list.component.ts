@@ -14,10 +14,11 @@ import { deleteDoc, doc } from 'firebase/firestore';
   providers: [ConfirmationService, MessageService]
 })
 export class CampaignListComponent implements OnInit {
-  campaigns: Observable<any[]> | undefined;
+  campaigns!: Observable<any[]>;
   user : any;
+  inviteCode: any;
 
-  constructor(private firestore: AngularFirestore, private firebase: Firestore, private confirmationService: ConfirmationService) { 
+  constructor(private firestore: AngularFirestore, private firebase: Firestore, private confirmationService: ConfirmationService) {
     const auth = getAuth();
     this.user = auth.currentUser;
     if(this.user){
@@ -42,6 +43,12 @@ export class CampaignListComponent implements OnInit {
   async EditCampaign(campaign: any) {
     window.localStorage.setItem("docId", campaign.id);
     window.localStorage.setItem("campaign", JSON.stringify(campaign));
+  }
+
+  JoinCampaign(){
+    const campaignJoin = "campaigns/" + this.inviteCode;
+    var campaign = this.firestore.doc(campaignJoin);
+    window.localStorage.setItem("campaignToJoin", JSON.stringify(campaign));
   }
 
 }
