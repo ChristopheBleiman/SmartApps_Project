@@ -59,6 +59,11 @@ a:hover {
 	width: 3rem;
 }
 
+.myOverrideText .p-inputtext{
+  font-size: 1.5rem;
+  width: 15rem;
+}
+
 .p-card {
   margin-top: 2rem;
 }
