@@ -80,7 +80,8 @@ export class AddCharacterComponent implements OnInit {
         INT: this.characterINT,
         WIS: this.characterWIS,
         CHA: this.characterCHA,
-        UserUID: this.user.uid
+        UserUID: this.user.uid,
+        CampaignId: ""
       });
       this.router.navigate(['/characters']);
     }
