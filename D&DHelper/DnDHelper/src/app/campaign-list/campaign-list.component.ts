@@ -53,10 +53,12 @@ export class CampaignListComponent implements OnInit {
       var campaign = doc(this.firebase, "campaigns", this.inviteCode);
       const campaignSnap = await getDoc(campaign);
       if (campaignSnap.exists()) {
-        var campaignToJoin = {id: this.inviteCode,
+        var campaignToJoin = {
+          id: this.inviteCode,
           Name: campaignSnap.data().Name,
           Description: campaignSnap.data().Description,
-          UserId: campaignSnap.data().UserID}
+          UserId: campaignSnap.data().UserID
+        }
         window.localStorage.setItem("campaignToJoin", JSON.stringify(campaignToJoin));
         this.errorString = "";
         //this.router.navigate(['/campaigns/join']);
