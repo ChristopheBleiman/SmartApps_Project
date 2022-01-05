@@ -34,4 +34,8 @@ export class EditCampaignComponent implements OnInit {
     this.router.navigate(['/campaigns']);
   }
 
+  btnBack(){
+    this.router.navigate(['/campaigns']);
+  }
+
 }

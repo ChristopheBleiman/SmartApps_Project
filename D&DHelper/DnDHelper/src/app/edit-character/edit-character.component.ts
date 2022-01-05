@@ -62,4 +62,8 @@ export class EditCharacterComponent implements OnInit {
     });
     this.router.navigate(['/characters']);
   }
+
+  btnBack(){
+    this.router.navigate(['/characters']);
+  }
 }
