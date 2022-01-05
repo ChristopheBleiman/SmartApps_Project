@@ -12,3 +12,9 @@
 .JoinCampaign input{
   font-size: 2rem;
 }
+
+.ErrorMessage {
+  margin-top: 2rem;
+  color: red;
+  text-align: center;
+}

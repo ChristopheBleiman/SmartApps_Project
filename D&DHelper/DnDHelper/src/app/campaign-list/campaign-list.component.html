@@ -5,6 +5,7 @@
   <input type="text" [(ngModel)]="inviteCode" pInputText>
   <button pButton type="button" label="Join Campaign" (click)="JoinCampaign()"></button>
 </div>
+<div class="ErrorMessage" [innerText]="errorString"></div>
 <div *ngIf="user != null; else LoggedOut">
   <div *ngIf="campaigns != null; else NoCampaign">
     <ul>
