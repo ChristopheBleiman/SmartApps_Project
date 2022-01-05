@@ -61,7 +61,7 @@ export class CampaignListComponent implements OnInit {
         }
         window.localStorage.setItem("campaignToJoin", JSON.stringify(campaignToJoin));
         this.errorString = "";
-        //this.router.navigate(['/campaigns/join']);
+        this.router.navigate(['/campaigns/join']);
         } else {
         this.errorString = "This invite code does not exist"
       }
