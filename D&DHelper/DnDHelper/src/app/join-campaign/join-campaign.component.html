@@ -11,7 +11,7 @@
   <h4>Your characters that can join</h4>
   <ul>
     <li *ngFor="let joinableChar of joinableCharacters | async">
-      <p>{{joinableChar.Name}} <button pButton type="button" label="Join" (click)="JoinCharacter(joinableChar)"></button></p>
+      <p>{{joinableChar.Name}}: <b>Level</b> {{joinableChar.Level}} <b>Class</b> {{joinableChar.Class}} <b>Subclass</b> {{joinableChar.Subclass}} <button pButton type="button" label="Join" (click)="JoinCharacter(joinableChar)"></button></p>
     </li>
   </ul>
 </p-card>

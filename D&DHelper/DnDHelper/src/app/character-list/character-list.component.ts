@@ -167,7 +167,7 @@ export class CharacterListComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       message: 'Are you sure you want to delete this character? This action cannot be undone',
       accept: async () => {
-        await deleteDoc(doc(this.firebase, "characters", char.id))
+        await deleteDoc(doc(this.firebase, "characters", char.id));
       }
     });
   }

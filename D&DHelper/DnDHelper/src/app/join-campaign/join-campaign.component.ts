@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Firestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { getAuth } from 'firebase/auth';
 
 @Component({
   selector: 'app-join-campaign',
@@ -15,11 +16,14 @@ export class JoinCampaignComponent implements OnInit {
   characters!: Observable<any[]>;
   joinableCharacters!: Observable<any[]>;
   charactersCollection : any;
+  user: any;
 
   constructor(private db: AngularFirestore, private firebase: Firestore, private router: Router) {
+    const auth = getAuth();
+    this.user = auth.currentUser;
     this.characters = db.collection('characters', ref => ref.where('CampaignId', '==', this.campaign.id)).valueChanges({ idField: 'id' });
-    this.joinableCharacters = db.collection('characters', ref => ref.where('CampaignId', '==', '')).valueChanges({ idField: 'id' });
-    this.charactersCollection = db.collection('characters'); 
+    this.joinableCharacters = db.collection('characters', ref => ref.where('CampaignId', '==', '').where('UserUID', '==', this.user.uid)).valueChanges({ idField: 'id' });
+    this.charactersCollection = db.collection('characters');
   }
 
   ngOnInit() {
