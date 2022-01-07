@@ -93,7 +93,7 @@ import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
     CampaignListComponent,
     AddCampaignComponent,
     EditCampaignComponent,
-      JoinCampaignComponent
+    JoinCampaignComponent
    ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

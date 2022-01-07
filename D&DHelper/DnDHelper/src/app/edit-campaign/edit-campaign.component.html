@@ -2,6 +2,31 @@
 <ul>
     <div class="myOverrideText"><li id="Name">Name: <input id="campaignEditName" type="text" [(ngModel)]="campaignName" pInputText></li></div>
     <div class="myOverrideText"><li id="Description">Description: <input id="campaignEditDescription" type="text" [(ngModel)]="campaignDescription" pInputText></li></div>
+    <li *ngFor="let character of characters | async">
+      <p-card>
+        <h3>{{character.Name}}</h3>
+        <h4>Basic Information</h4>
+        <p>Level {{character.Level}} {{character.Race}} {{character.Subclass}} {{character.Class}}</p>
+        <p>Proficiency Bonus: +{{CalculateProficiencyBonus(character.Level)}}</p>
+        <h4>Stats</h4>
+        <p>HP: {{character.HP}}</p>
+        <p>AC: {{character.AC}}</p>
+        <p>STR: {{character.STR}} ({{ShowModifier(character.STR)}})</p>
+        <p>DEX: {{character.DEX}} ({{ShowModifier(character.DEX)}})</p>
+        <p>CON: {{character.CON}} ({{ShowModifier(character.CON)}})</p>
+        <p>INT: {{character.INT}} ({{ShowModifier(character.INT)}})</p>
+        <p>WIS: {{character.WIS}} ({{ShowModifier(character.WIS)}})</p>
+        <p>CHA: {{character.CHA}} ({{ShowModifier(character.CHA)}})</p>
+        <h4>Saving Throws</h4>
+        <p>STR: {{CalculateSavingThrow(character.Class, "STR", character.Level, character.STR)}}</p>
+        <p>DEX: {{CalculateSavingThrow(character.Class, "DEX", character.Level, character.DEX)}}</p>
+        <p>CON: {{CalculateSavingThrow(character.Class, "CON", character.Level, character.CON)}}</p>
+        <p>INT: {{CalculateSavingThrow(character.Class, "INT", character.Level, character.INT)}}</p>
+        <p>WIS: {{CalculateSavingThrow(character.Class, "WIS", character.Level, character.WIS)}}</p>
+        <p>CHA: {{CalculateSavingThrow(character.Class, "CHA", character.Level, character.CHA)}}</p>
+        <button pButton type="button" label="Delete" (click)="confirmDelete(character, $event)" class="p-button-danger"></button>
+      </p-card>
+    </li>
 </ul>
 <button class="btnEditCampaign" pButton type="button" label="Edit" (click)="editCampaign()"></button>
 <button class="btnEditCampaign" pButton type="button" label="Back" (click)="btnBack()"></button>
