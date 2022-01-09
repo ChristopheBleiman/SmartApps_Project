@@ -1,7 +1,7 @@
 <h3>Edit campaign</h3>
 <ul>
     <div class="myOverrideText"><li id="Name">Name: <input id="campaignEditName" type="text" [(ngModel)]="campaignName" pInputText></li></div>
-    <div class="myOverrideText"><li id="Description">Description: <input id="campaignEditDescription" type="text" [(ngModel)]="campaignDescription" pInputText></li></div>
+    <div class="myOverrideText"><li id="Description">Description: <textarea [(ngModel)]="campaignDescription" [rows]="5" [cols]="100" pInputTextarea [autoResize]="autoResize"></textarea></li></div>
     <li *ngFor="let character of characters | async">
       <p-card>
         <h3>{{character.Name}}</h3>

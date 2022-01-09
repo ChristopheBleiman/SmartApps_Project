@@ -16,6 +16,7 @@ export class EditCampaignComponent implements OnInit {
   campaignDescription : any = this.campaign.Description;
   campaignsCollection : any;
   characters: any;
+  public autoResize: boolean = true;
 
   constructor(private db: AngularFirestore, private router: Router, private confirmationService: ConfirmationService) {
     this.campaignsCollection = db.collection('campaigns');
