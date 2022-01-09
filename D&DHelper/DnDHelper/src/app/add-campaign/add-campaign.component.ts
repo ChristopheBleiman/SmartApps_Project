@@ -15,8 +15,9 @@ export class AddCampaignComponent implements OnInit {
   campaignDescription: string = "";
   campaignsCollection: any;
   user: any;
+  public autoResize: boolean = true;
 
-  constructor(private db: AngularFirestore, private router: Router) { 
+  constructor(private db: AngularFirestore, private router: Router) {
     this.campaignsCollection = db.collection('campaigns');
     const auth = getAuth();
     this.user = auth.currentUser;

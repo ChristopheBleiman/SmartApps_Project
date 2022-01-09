@@ -8,6 +8,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MenubarModule} from 'primeng/menubar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 
 
 
@@ -64,6 +66,7 @@ import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
     ButtonModule,
     InputNumberModule,
     InputTextModule,
+    InputTextareaModule,
     CardModule,
     ToolbarModule,
     TabMenuModule,
