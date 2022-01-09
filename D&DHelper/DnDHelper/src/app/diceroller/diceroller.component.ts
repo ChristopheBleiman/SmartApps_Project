@@ -74,11 +74,11 @@ export class DicerollerComponent implements OnInit {
 
     for (let index = 0; index < diceAmount; index++) {
       random = Math.ceil(Math.random()*4)
-      li.appendChild(document.createTextNode(`1D4:${random} `));
+      li.appendChild(document.createTextNode(`1D4 = ${random} | `));
       ul?.appendChild(li);
       total += random;
     }
-    li.appendChild(document.createTextNode(`→Total: ${diceAmount}D4: ${total}`));
+    li.appendChild(document.createTextNode(`→ Total: ${diceAmount}D4 = ${total}`));
     ul?.appendChild(li);
   }
 
@@ -94,11 +94,11 @@ export class DicerollerComponent implements OnInit {
 
     for (let index = 0; index < diceAmount; index++) {
       random = Math.ceil(Math.random()*6)
-      li.appendChild(document.createTextNode(`1D6:${random} `));
+      li.appendChild(document.createTextNode(`1D6 = ${random} | `));
       ul?.appendChild(li);
       total += random;
     }
-    li.appendChild(document.createTextNode(`→Total: ${diceAmount}D6: ${total}`));
+    li.appendChild(document.createTextNode(`→ Total: ${diceAmount}D6 = ${total}`));
     ul?.appendChild(li);
   }
 
@@ -114,11 +114,11 @@ export class DicerollerComponent implements OnInit {
 
     for (let index = 0; index < diceAmount; index++) {
       random = Math.ceil(Math.random()*8)
-      li.appendChild(document.createTextNode(`1D8:${random} `));
+      li.appendChild(document.createTextNode(`1D8 = ${random} | `));
       ul?.appendChild(li);
       total += random;
     }
-    li.appendChild(document.createTextNode(`→Total: ${diceAmount}D8: ${total}`));
+    li.appendChild(document.createTextNode(`→ Total: ${diceAmount}D8 = ${total}`));
     ul?.appendChild(li);
   }
 
@@ -134,11 +134,11 @@ export class DicerollerComponent implements OnInit {
 
     for (let index = 0; index < diceAmount; index++) {
       random = Math.ceil(Math.random()*10)
-      li.appendChild(document.createTextNode(`1D10:${random} `));
+      li.appendChild(document.createTextNode(`1D10 = ${random} | `));
       ul?.appendChild(li);
       total += random;
     }
-    li.appendChild(document.createTextNode(`→Total: ${diceAmount}D10: ${total}`));
+    li.appendChild(document.createTextNode(`→ Total: ${diceAmount}D10 = ${total}`));
     ul?.appendChild(li);
   }
 
@@ -154,11 +154,11 @@ export class DicerollerComponent implements OnInit {
 
     for (let index = 0; index < diceAmount; index++) {
       random = Math.ceil(Math.random()*12)
-      li.appendChild(document.createTextNode(`1D12:${random} `));
+      li.appendChild(document.createTextNode(`1D12 = ${random} | `));
       ul?.appendChild(li);
       total += random;
     }
-    li.appendChild(document.createTextNode(`→Total: ${diceAmount}D12: ${total}`));
+    li.appendChild(document.createTextNode(`→ Total: ${diceAmount}D12 = ${total}`));
     ul?.appendChild(li);
   }
 
@@ -174,11 +174,11 @@ export class DicerollerComponent implements OnInit {
 
     for (let index = 0; index < diceAmount; index++) {
       random = Math.ceil(Math.random()*20)
-      li.appendChild(document.createTextNode(`1D20:${random} `));
+      li.appendChild(document.createTextNode(`1D20 = ${random} | `));
       ul?.appendChild(li);
       total += random;
     }
-    li.appendChild(document.createTextNode(`→Total: ${diceAmount}D20: ${total}`));
+    li.appendChild(document.createTextNode(`→ Total: ${diceAmount}D20 = ${total}`));
     ul?.appendChild(li);
   }
 
@@ -194,11 +194,11 @@ export class DicerollerComponent implements OnInit {
 
     for (let index = 0; index < diceAmount; index++) {
       random = Math.ceil(Math.random()*100)
-      li.appendChild(document.createTextNode(`1D100:${random} `));
+      li.appendChild(document.createTextNode(`1D100 = ${random} | `));
       ul?.appendChild(li);
       total += random;
     }
-    li.appendChild(document.createTextNode(`→Total: ${diceAmount}D100: ${total}`));
+    li.appendChild(document.createTextNode(`→ Total: ${diceAmount}D100 = ${total}`));
     ul?.appendChild(li);
   }
 
