@@ -1,6 +1,7 @@
 <div *ngIf="spellDetails">
   <h3>{{ spellDetails.name }}</h3>
-  <h4>Level {{ spellDetails.level }} {{ spellDetails.school.name}}</h4>
+  <h4 *ngIf="spellDetails.level > 0">Level {{ spellDetails.level }} {{ spellDetails.school.name}}</h4>
+  <h4 *ngIf="spellDetails.level == 0">{{ spellDetails.school.name}} Cantrip</h4>
   <p>Cast time: {{spellDetails.casting_time}}</p>
   <p *ngIf="spellDetails.ritual == true">This spell can be cast as a ritual.</p>
   <p *ngIf="spellDetails.concentration == true">This spell requires concentration.</p>
