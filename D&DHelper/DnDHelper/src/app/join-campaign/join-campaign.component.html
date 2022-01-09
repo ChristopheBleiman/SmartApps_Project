@@ -2,7 +2,7 @@
   <h3 id="CampaignName"></h3>
   <h4>Description</h4>
   <p id="CampaignDescription"></p>
-  <h4>Players in campaign</h4>
+  <h4>Characters in campaign</h4>
   <ul>
     <li *ngFor="let character of characters | async">
       <p>{{character.Name}}: <b>Level</b> {{character.Level}} <b>Class</b> {{character.Class}} <b>Subclass</b> {{character.Subclass}}</p>
