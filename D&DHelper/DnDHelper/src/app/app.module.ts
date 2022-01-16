@@ -43,6 +43,7 @@ import { EditCampaignComponent } from './edit-campaign/edit-campaign.component';
 import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
 import { enableIndexedDbPersistence } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -84,6 +85,12 @@ import { getAuth } from 'firebase/auth';
     provideFirestore(() => getFirestore()),
     AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   declarations: [
     AppComponent,
