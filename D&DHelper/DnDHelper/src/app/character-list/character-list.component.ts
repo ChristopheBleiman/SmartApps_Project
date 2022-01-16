@@ -41,7 +41,7 @@ export class CharacterListComponent implements OnInit {
     if (this.user) {
       this.characters = firestore.collection('characters', ref => ref.where('UserUID', '==', this.user.uid)).valueChanges({ idField: 'id' });
       this.characters.forEach(character => {
-        //character.Proficiencies = firestore.collection("Characters/"+ character.id +"/Proficiencies")
+        //character.Proficiencies = firestore.collection("characters/"+ character.id +"/Proficiencies")
       });
     }
   }
@@ -167,7 +167,7 @@ export class CharacterListComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       message: 'Are you sure you want to delete this character? This action cannot be undone',
       accept: async () => {
-        await deleteDoc(doc(this.firebase, "characters", char.id))
+        await deleteDoc(doc(this.firebase, "characters", char.id));
       }
     });
   }

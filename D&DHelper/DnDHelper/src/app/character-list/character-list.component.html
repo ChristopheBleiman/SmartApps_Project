@@ -1,7 +1,7 @@
-<div class="buttonPlacement">
-  <button pButton type="button" label="Add Character" [routerLink]="'/characters/add'"></button>
-</div>
 <div *ngIf="user != null; else LoggedOut">
+  <div class="buttonPlacement">
+    <button pButton type="button" label="Add Character" [routerLink]="'/characters/add'"></button>
+  </div>
   <div *ngIf="characters != null; else NoCharacter">
     <ul>
       <li *ngFor="let character of characters | async">

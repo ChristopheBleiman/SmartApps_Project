@@ -8,6 +8,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MenubarModule} from 'primeng/menubar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 
 
 
@@ -39,6 +41,9 @@ import { CampaignListComponent } from './campaign-list/campaign-list.component';
 import { AddCampaignComponent } from './add-campaign/add-campaign.component';
 import { EditCampaignComponent } from './edit-campaign/edit-campaign.component';
 import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
+import { enableIndexedDbPersistence } from "firebase/firestore";
+import { getAuth } from 'firebase/auth';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -64,6 +69,7 @@ import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
     ButtonModule,
     InputNumberModule,
     InputTextModule,
+    InputTextareaModule,
     CardModule,
     ToolbarModule,
     TabMenuModule,
@@ -79,6 +85,12 @@ import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
     provideFirestore(() => getFirestore()),
     AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   declarations: [
     AppComponent,
@@ -93,9 +105,15 @@ import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
     CampaignListComponent,
     AddCampaignComponent,
     EditCampaignComponent,
-      JoinCampaignComponent
+    JoinCampaignComponent
    ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private firebase: Firestore) {
+    enableIndexedDbPersistence(firebase);
+    getAuth();
+  }
+
+}

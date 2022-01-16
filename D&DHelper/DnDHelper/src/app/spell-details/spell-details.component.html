@@ -1,8 +1,20 @@
 <div *ngIf="spellDetails">
   <h3>{{ spellDetails.name }}</h3>
+  <h4 *ngIf="spellDetails.level > 0">Level {{ spellDetails.level }} {{ spellDetails.school.name}}</h4>
+  <h4 *ngIf="spellDetails.level == 0">{{ spellDetails.school.name}} Cantrip</h4>
+  <p>Cast time: {{spellDetails.casting_time}}</p>
+  <p *ngIf="spellDetails.ritual == true">This spell can be cast as a ritual.</p>
+  <p *ngIf="spellDetails.concentration == true">This spell requires concentration.</p>
   <div *ngFor="let line of spellDetails.desc">
-    <h4>{{ line }}</h4>
+    <h5>{{ line }}</h5>
   </div>
   <p>{{ spellDetails.higher_level }}</p>
+  <p>Range: {{ spellDetails.range }}</p>
+  <p>Components:</p>
+  <ul *ngFor="let line of spellDetails.components" class="components">
+    <li>{{ line }}</li>
+  </ul>
+  <p *ngIf="spellDetails.material">Material: {{ spellDetails.material }}</p>
+  <p>Duration: {{ spellDetails.duration }}</p>
 </div>
 <button pButton type="button" label="Back" icon="pi pi-chevron-left" iconPos="left" [routerLink]="'/compendium'"></button>

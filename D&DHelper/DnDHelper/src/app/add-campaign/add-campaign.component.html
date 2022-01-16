@@ -1,7 +1,7 @@
 <h3>Campaign</h3><br>
 <ul>
   <div><li id="Name">Name: <input type="text" [(ngModel)]="campaignName" pInputText></li></div>
-  <div><li id="Descripion">Description: <input type="text" [(ngModel)]="campaignDescription" pInputText></li></div>
+  <div><li id="Descripion">Description: <textarea [(ngModel)]="campaignDescription" [rows]="5" [cols]="100" pInputTextarea [autoResize]="autoResize"></textarea></li></div>
 </ul>
 <div class="ErrorMessage" [innerText]="ErrorString"></div>
 <button pButton type="button" label="Create" class="p-button-lg" (click)="CreateCampaign()"></button>
