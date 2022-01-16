@@ -12,7 +12,6 @@ export class CompendiumComponent implements OnInit {
   Online: boolean;
 
   constructor(private spell:SpellsService){
-    console.log(navigator.onLine)
     this.Online = navigator.onLine
     if(navigator.onLine){
       this.LoadSpells();
