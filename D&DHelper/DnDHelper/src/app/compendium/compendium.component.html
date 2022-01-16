@@ -1,3 +1,8 @@
-<p *ngFor="let spell of spellList?.results">
-  <button pButton><a [routerLink]="['/compendium/spells', spell.index]">{{spell.name}}</a></button>
-</p>
+<div *ngIf="Online == true; else OffLine">
+  <p *ngFor="let spell of spellList?.results">
+    <button pButton><a [routerLink]="['/compendium/spells', spell.index]">{{spell.name}}</a></button>
+  </p>
+</div>
+<ng-template #OffLine>
+  <p>This API resource cannot be accessed while offline. Please go online again to use it.</p>
+</ng-template>

@@ -9,9 +9,14 @@ import { SpellsService } from '../spells.service';
 })
 export class CompendiumComponent implements OnInit {
   spellList: SpellList | undefined;
+  Online: boolean;
 
   constructor(private spell:SpellsService){
-    this.LoadSpells();
+    console.log(navigator.onLine)
+    this.Online = navigator.onLine
+    if(navigator.onLine){
+      this.LoadSpells();
+    }
   }
 
   ngOnInit() {

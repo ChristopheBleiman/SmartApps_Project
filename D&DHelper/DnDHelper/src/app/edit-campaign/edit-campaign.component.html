@@ -1,7 +1,7 @@
 <h3>Edit campaign</h3>
 <ul>
-    <div class="myOverrideText"><li id="Name">Name: <input id="campaignEditName" type="text" [(ngModel)]="campaignName" pInputText></li></div>
-    <div class="myOverrideText"><li id="Description">Description: <textarea [(ngModel)]="campaignDescription" [rows]="5" [cols]="100" pInputTextarea [autoResize]="autoResize"></textarea></li></div>
+    <div><li id="Name">Name: <input id="campaignEditName" type="text" [(ngModel)]="campaignName" pInputText></li></div>
+    <div><li id="Description">Description: <textarea id="campaignEditDescription" [(ngModel)]="campaignDescription" [rows]="5" [cols]="100" pInputTextarea [autoResize]="autoResize"></textarea></li></div>
     <li *ngFor="let character of characters | async">
       <p-card>
         <h3>{{character.Name}}</h3>
@@ -28,5 +28,7 @@
       </p-card>
     </li>
 </ul>
+<p-confirmPopup></p-confirmPopup>
+<div class="ErrorMessage" [innerText]="ErrorString"></div>
 <button class="btnEditCampaign" pButton type="button" label="Edit" (click)="editCampaign()"></button>
 <button class="btnEditCampaign" pButton type="button" label="Back" (click)="btnBack()"></button>

@@ -11,7 +11,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class EditCampaignComponent implements OnInit {
   campaign: any = JSON.parse(window.localStorage.getItem('campaign')!);
-
+  ErrorString: any = "";
   campaignName: any = this.campaign.Name;
   campaignDescription : any = this.campaign.Description;
   campaignsCollection : any;
@@ -27,16 +27,17 @@ export class EditCampaignComponent implements OnInit {
   }
 
   editCampaign(){
-    let docId = window.localStorage.getItem("docId");
-
-    let campaignEditName = (<HTMLInputElement>document.querySelector('#campaignEditName')).value!;
-    let campaignEditDescription = (<HTMLInputElement>document.querySelector('#campaignEditDescription')).value!;
-
-    this.campaignsCollection.doc(`${docId}`).update({
-      Name: campaignEditName,
-      Description: campaignEditDescription
-    });
-    this.router.navigate(['/campaigns']);
+    if (this.campaignName.trim() == "" || this.campaignName == null || this.campaignDescription.trim() == "" || this.campaignDescription == null) {
+      this.ErrorString = "Please fill in all fields"
+    }
+    else {
+      let docId = window.localStorage.getItem("docId");
+      this.campaignsCollection.doc(`${docId}`).update({
+        Name: this.campaignName,
+        Description: this.campaignDescription
+      });
+      this.router.navigate(['/campaigns']);
+    }
   }
 
   confirmDelete(char: any, event: any) {
@@ -45,9 +46,9 @@ export class EditCampaignComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       message: 'Are you sure you want to delete this character from the campaign? This action cannot be undone',
       accept: async () => {
-        await this.characters.doc(`${char.id}`).update({
-          CampaignId: ""
-        });
+        const path = "characters/" + char.id;
+        const ref = this.db.doc(path)
+        ref.update({CampaignId : ""});
       }
     });
   }

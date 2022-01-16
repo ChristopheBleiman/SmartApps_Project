@@ -19,7 +19,7 @@ export class CampaignListComponent implements OnInit {
   campaigns!: Observable<any[]>;
   user : any;
   inviteCode: any;
-  errorString: string;
+  errorString: string = "";
 
   constructor(private firestore: AngularFirestore, private firebase: Firestore, private confirmationService: ConfirmationService, private router: Router) {
     const auth = getAuth();
@@ -27,7 +27,6 @@ export class CampaignListComponent implements OnInit {
     if(this.user){
       this.campaigns = firestore.collection('campaigns', ref => ref.where('UserID', '==', this.user.uid)).valueChanges({ idField: 'id' });
     }
-    this.errorString = "";
   }
 
   ngOnInit() {
