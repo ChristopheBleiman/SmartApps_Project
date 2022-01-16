@@ -21,6 +21,7 @@ export class CampaignListComponent implements OnInit {
   inviteCode: any;
   errorString: string = "";
 
+  // Geen idee hoe ervoor te zorgen dat ik alle campaigns waar je als speler in zit kan zien.
   constructor(private firestore: AngularFirestore, private firebase: Firestore, private confirmationService: ConfirmationService, private router: Router) {
     const auth = getAuth();
     this.user = auth.currentUser;
