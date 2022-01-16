@@ -7,7 +7,7 @@
     <button pButton type="button" label="Join Campaign" (click)="JoinCampaign()"></button>
   </div>
   <div class="ErrorMessage" [innerText]="errorString"></div>
-  <h3>My campaigns</h3>
+  <h3>Campaigns I am DM for</h3>
   <div *ngIf="campaigns != null; else NoCampaign">
     <ul>
       <li *ngFor="let campaign of campaigns | async">
