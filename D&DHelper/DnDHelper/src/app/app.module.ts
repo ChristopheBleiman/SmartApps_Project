@@ -41,6 +41,8 @@ import { CampaignListComponent } from './campaign-list/campaign-list.component';
 import { AddCampaignComponent } from './add-campaign/add-campaign.component';
 import { EditCampaignComponent } from './edit-campaign/edit-campaign.component';
 import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
+import { enableIndexedDbPersistence } from "firebase/firestore";
+import { getAuth } from 'firebase/auth';
 
 
 @NgModule({
@@ -101,4 +103,10 @@ import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private firebase: Firestore) {
+    enableIndexedDbPersistence(firebase);
+    getAuth();
+  }
+
+}

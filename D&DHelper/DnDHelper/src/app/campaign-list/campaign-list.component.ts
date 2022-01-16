@@ -19,15 +19,15 @@ export class CampaignListComponent implements OnInit {
   campaigns!: Observable<any[]>;
   user : any;
   inviteCode: any;
-  errorString: string;
+  errorString: string = "";
 
+  // Geen idee hoe ervoor te zorgen dat ik alle campaigns waar je als speler in zit kan zien.
   constructor(private firestore: AngularFirestore, private firebase: Firestore, private confirmationService: ConfirmationService, private router: Router) {
     const auth = getAuth();
     this.user = auth.currentUser;
     if(this.user){
       this.campaigns = firestore.collection('campaigns', ref => ref.where('UserID', '==', this.user.uid)).valueChanges({ idField: 'id' });
     }
-    this.errorString = "";
   }
 
   ngOnInit() {
