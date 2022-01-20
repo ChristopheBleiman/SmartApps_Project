@@ -15,6 +15,7 @@ export class EditCharacterComponent implements OnInit {
   charLevel: string = this.char.Level;
   charSubclass : string = this.char.Subclass;
   charName : string = this.char.Name;
+  charRace : string = this.char.Race;
   charHP : string = this.char.HP;
   charAC : string = this.char.AC;
   charSTR : string = this.char.STR;
@@ -37,6 +38,7 @@ export class EditCharacterComponent implements OnInit {
   editChar(){
     let docId = window.localStorage.getItem("docId");
 
+    let charEditRace = (<HTMLInputElement>document.querySelector('#charEditRace')).value!;
     let charEditLevel = (<HTMLInputElement>document.querySelector('#charEditLevel')).value!;
     let charEditSubclass = (<HTMLInputElement>document.querySelector('#charEditSubclass')).value!;
     let charEditHP = (<HTMLInputElement>document.querySelector('#charEditHP')).value!;
@@ -49,6 +51,7 @@ export class EditCharacterComponent implements OnInit {
     let charEditCHA = (<HTMLInputElement>document.querySelector('#charEditCHA')).value!;
 
     this.charactersCollection.doc(`${docId}`).update({
+      Race: charEditRace,
       Level: charEditLevel,
       Subclass: charEditSubclass,
       HP: charEditHP,

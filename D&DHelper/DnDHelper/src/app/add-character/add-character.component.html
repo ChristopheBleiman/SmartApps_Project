@@ -4,6 +4,7 @@
 <h4>Basic Info</h4>
 <ul>
   <div class="OverrideBasicI"><li id="Name">Name: <input type="text" [(ngModel)]="characterName" pInputText></li></div>
+  <div class="OverrideBasicI"><li id="Race">Race: <input type="text" [(ngModel)]="characterRace" pInputText></li></div>
   <div class="OverrideBasicI"><li id="Class">Class: <p-dropdown [options]="classes" [(ngModel)]="characterClass" class="dropdown"></p-dropdown></li></div>
   <div class="OverrideBasicI"><li id="SubClass">Subclass: <input type="text" [(ngModel)]="characterSubclass" pInputText></li></div>
   <div class="OverrideBasicI"><li id="Level">Level: <p-inputNumber [(ngModel)]="characterLevel" mode="decimal" [min]="1" [max]="20"></p-inputNumber></li></div>

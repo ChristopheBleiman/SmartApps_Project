@@ -26,7 +26,6 @@ export class InitiativeTrackerComponent implements OnInit {
     const char: Initiative = this.initList[0];
     this.initList.shift();
     this.initList.push(char);
-
   }
   SortInit() {
     this.initList.sort(this.compare);
