@@ -12,6 +12,7 @@ import {Router} from "@angular/router"
 export class AddCharacterComponent implements OnInit {
 
   characterName: string = "";
+  characterRace: string = "";
   characterClass: string = "";
   characterSubclass: string = "";
   characterLevel: number = 1;
@@ -55,6 +56,7 @@ export class AddCharacterComponent implements OnInit {
       this.ErrorString = "Please log in before making a character";
     }
     else if (this.characterName.trim() == "" || this.characterName == null ||
+    this.characterRace.trim() == "" || this.characterRace == null ||
     this.characterSubclass.trim() == "" || this.characterSubclass == null ||
     this.characterLevel == 0 || this.characterLevel == null ||
     this.characterHP == 0 || this.characterHP == null ||
@@ -69,6 +71,7 @@ export class AddCharacterComponent implements OnInit {
     }
     else {
       this.charactersCollection.add({Name: this.characterName,
+        Race: this.characterRace,
         Class: this.characterClass,
         Subclass: this.characterSubclass,
         Level: this.characterLevel,
