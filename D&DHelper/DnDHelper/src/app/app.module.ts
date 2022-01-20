@@ -44,6 +44,8 @@ import { JoinCampaignComponent } from './join-campaign/join-campaign.component';
 import { enableIndexedDbPersistence } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { InitiativeTrackerComponent } from './initiative-tracker/initiative-tracker.component';
+import { AddInitComponent } from './add-init/add-init.component';
 
 
 @NgModule({
@@ -64,7 +66,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       { path: 'campaigns/add', component: AddCampaignComponent},
       { path: 'campaigns/edit', component: EditCampaignComponent},
       { path: 'campaigns/join', component: JoinCampaignComponent},
-      { path: 'login-google', component: LoginGoogleComponent}
+      { path: 'login-google', component: LoginGoogleComponent},
+      { path: 'init-tracker', component: InitiativeTrackerComponent},
+      { path: 'init-tracker/add', component: AddInitComponent}
     ]),
     ButtonModule,
     InputNumberModule,
@@ -105,7 +109,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     CampaignListComponent,
     AddCampaignComponent,
     EditCampaignComponent,
-    JoinCampaignComponent
+    JoinCampaignComponent,
+      InitiativeTrackerComponent,
+      AddInitComponent
    ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

@@ -1,0 +1,24 @@
+<div class="buttonPlacement">
+  <button pButton type="button" label="Add Initiative" [routerLink]="'/init-tracker/add'"></button>
+</div>
+<div class="buttonPlacement">
+  <button pButton type="button" label="Sort Initiative" (click)="SortInit()"></button>
+  <button pButton type="button" id="NextTurnButton" label="Next Turn" (click)="NextTurn()"></button>
+</div>
+<div *ngFor="let init of initList; first as isFirst">
+  <div *ngIf="isFirst">
+    <p-card>
+      <h3>Current Turn: {{init.name}}</h3>
+      <h4>Initiative: {{init.score}}</h4>
+    </p-card>
+  </div>
+  <div *ngIf="!isFirst">
+    <p-card>
+      <h3>{{init.name}}</h3>
+      <h4>Initiative: {{init.score}}</h4>
+    </p-card>
+  </div>
+</div>
+<div class="buttonPlacement">
+  <button pButton type="button" label="Clear Initiative" (click)="ClearInitiative()"></button>
+</div>
