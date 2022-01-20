@@ -1,5 +1,4 @@
 .JoinCampaign{
-  display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
@@ -17,4 +16,10 @@
   margin-top: 2rem;
   color: red;
   text-align: center;
+}
+
+@media (min-width: 38rem) {
+  .JoinCampaign{
+    display: flex;
+  }
 }

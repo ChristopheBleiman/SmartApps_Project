@@ -1,0 +1,13 @@
+<h3>Add To Initiative</h3>
+<ul>
+  <div class="OverrideBasicI"><li id="Name">Name: <input type="text" [(ngModel)]="initiativeName" pInputText></li></div>
+  <div class="OverrideStats"><li id="Modifier">Initiative Modifier: <p-inputNumber type="decimal" [min]="-5" [max]="10" [showButtons]="true" [(ngModel)]="initiativeModifier"></p-inputNumber></li></div>
+  <div class="InitRoll">
+    <div class="OverrideStats"><li id="Modifier">Roll Result: <p-inputNumber type="decimal" [min]="0" [max]="20" [(ngModel)]="initiativeScoreNoMod"></p-inputNumber></li></div>
+    <button pButton type="button" class="primary btnDiceRoller" label="Roll Initiative" (click)="RollDice()"></button>
+  </div>
+  <p>Total Initiative: {{initiativeScore}}</p>
+</ul>
+<div class="ErrorMessage" [innerText]="ErrorString"></div>
+<button pButton type="button" class="primary btnDiceRoller" label="Add" (click)="AddToInitiative()"></button>
+

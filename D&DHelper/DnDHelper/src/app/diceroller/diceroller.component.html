@@ -8,7 +8,10 @@
     <div id="D101220Dice" class="myOverride"><li id="D12Roll">D12 X<p-inputNumber [(ngModel)]="valueDice12" [showButtons]="true" mode="decimal" [min]="0" inputId="amountD12Dice"></p-inputNumber></li></div>
     <div id="D101220Dice" class="myOverride"><li id="D20Roll">D20 X<p-inputNumber [(ngModel)]="valueDice20" [showButtons]="true" mode="decimal" [min]="0" inputId="amountD20Dice"></p-inputNumber></li></div>
     <div class="myOverride"><li id="D100Roll">D100 X<p-inputNumber [(ngModel)]="valueDice100" [showButtons]="true" mode="decimal" [min]="0" inputId="amountD100Dice"></p-inputNumber></li></div>
-    <li id="multiDiceRoll"><button pButton type="button" class="primary btnDiceRoller" label="Roll Dice" (click)="RollDice()"></button><button pButton type="button" class="primary btnDiceRoller" label="Clear Dice Rolls" (click)="ClearDiceRolls()"></button></li>
+    <li id="multiDiceRoll">
+      <button pButton type="button" class="primary btnDiceRoller" label="Roll Dice" (click)="RollDice()"></button>
+      <button pButton type="button" class="primary btnDiceRoller" label="Clear Dice Rolls" (click)="ClearDiceRolls()"></button>
+    </li>
   </ul>
 
   <ul id="lstRolls" class="uLists">
